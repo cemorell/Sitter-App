@@ -10,15 +10,19 @@ var env = {
   AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
 };
 
+//user's profile page
 router.get('/', ensureLoggedIn, function(req, res, next) {
-  console.log(req.user);
+  console.log("hello");
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
+//login
 router.get('/login', function(req, res){
   res.render('login', { title: 'Express', env: env });
 });
 
+
+//logout
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');

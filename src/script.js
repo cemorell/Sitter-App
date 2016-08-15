@@ -1,7 +1,8 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import SomeComponent from './components/some_component';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AllContainer from './components/all-container';
 
-// ReactDOM.render(<SomeComponent />, document.getElementById('some-id'));
+ReactDOM.render(<AllContainer />, document.getElementById('container'));
+
 
 console.log('herro');

@@ -2,19 +2,19 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Auth Template</title>
+    <title>Sitter Now</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h2>My Application</h2>
+    <h2>Sitter Now</h2>
 
     <div>
-      <button onclick="lock.show();">Login</button>
+      <button onclick="lock.show();">Login or Sign Up</button>
     </div>
 
     <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('qmnpJhjSeeA5S5lxPFdqIABEsTL4RDqK', 'changamanda.auth0.com', {
+      var lock = new Auth0Lock('k5giYEZqoI9dw7fsNAeTLAU8nBFMpqtZ', 'babysit.auth0.com', {
         auth: {
           redirectUrl: 'http://localhost:3000/callback',
           responseType: 'code',
