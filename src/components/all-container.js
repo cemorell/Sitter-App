@@ -2,8 +2,6 @@ import React from 'react';
 import Navbar from './navbar';
 
 
-
-
 class AllContainer extends React.Component {
  constructor(props){
     super(props);

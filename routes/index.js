@@ -18,12 +18,14 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 
 //login
 router.get('/login', function(req, res){
+  console.log("LOGIN IN")
   res.render('login', { title: 'Express', env: env });
 });
 
 
 //logout
 router.get('/logout', function(req, res){
+  console.log("BYE now")
   req.logout();
   res.redirect('/');
 });
