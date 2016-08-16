@@ -10,9 +10,8 @@ var env = {
   AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
 };
 
-//user's profile page
+//Home page
 router.get('/', ensureLoggedIn, function(req, res, next) {
-  console.log("hello");
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
@@ -30,6 +29,22 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+//all sitters but still need to filter for SITTERS ONLY in right city in Find params
+router.get('/users', function(req, res, next) {
+  User.find({}, function(err, users){
+    res.json(users);
+  });
+});
+
+//update profile info
+router.patch('/:id/upvote', function(req, res, next){
+  Joke.findByIdAndUpdate(req.params.id, { $inc: { upvotes: 1 }}, function(err, joke) {
+    if (err) console.log(err);
+    res.json(joke);
+  });
+})
+
+//the signingin and saving of it all
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {

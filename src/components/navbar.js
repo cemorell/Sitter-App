@@ -7,7 +7,10 @@ class Navbar extends React.Component {
     super(props);
   }
 
-
+  _handleClick(id, event){
+    event.preventDefault();
+    this.props.changeCurrentDiv(id);
+  }
 
   render(){
     return (
@@ -22,14 +25,14 @@ class Navbar extends React.Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="/#">CAMILLE</a>
+      <a className="navbar-brand" href="/:id">CAMILLE</a>
     </div>
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav">
-        <li className="active"><a href="#">All Sitters <span className="sr-only">(current)</span></a></li>
-        <li><a href="#">Edit Profile</a></li>
-        <li><a href="#">Match Requests</a></li>
-        <li><a href="#">Matches</a></li>
+        <li className="active"><a onClick={ this._handleClick.bind(this, 'all') } href="/users">All Sitters <span className="sr-only">(current)</span></a></li>
+        <li><a onClick={ this._handleClick.bind(this, 'edit') } href="/edit">Edit Profile</a></li>
+        <li><a onClick={ this._handleClick.bind(this, 'requests') }href="/">Requests</a></li>
+        <li><a onClick={ this._handleClick.bind(this, 'matches') } href="/">Matches</a></li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
         <li><a href="/logout">Logout</a></li>

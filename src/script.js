@@ -5,4 +5,3 @@ import AllContainer from './components/all-container';
 ReactDOM.render(<AllContainer />, document.getElementById('container'));
 
 
-console.log('herro');
