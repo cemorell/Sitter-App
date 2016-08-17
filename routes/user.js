@@ -6,6 +6,8 @@ var router = express.Router();
 /* GET user profile. */
 router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('user', { user: req.user });
+    var user = req.user;
+    res.json(user);
 });
 
 module.exports = router;

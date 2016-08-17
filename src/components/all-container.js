@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './navbar';
-import UsersContainer from './users-container'
+import UsersContainer from './users-container';
+import Profile from './profile';
 
 
 class AllContainer extends React.Component {
@@ -8,7 +9,7 @@ class AllContainer extends React.Component {
     super();
     this.state = {
       users: [],
-      currentDiv: 'edit',
+      currentDiv: 'all',
       currentUser: {}
     };
   }
@@ -25,14 +26,29 @@ class AllContainer extends React.Component {
     .fail(function(error){
       console.log(error);
     })
+    $.ajax({
+      url: '/profile',
+      method: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      this.setState({currentUser: data});
+    }.bind(this))
+    .fail(function(error){
+      console.log(error);
+    })
   }
+
 
   _showDiv(){
     if (this.state.currentDiv === 'all'){
       return (<div><UsersContainer users={ this.state.users } /></div>);
     }
+    else if (this.state.currentDiv === 'profile'){
+      return (<div><Profile currentUser={ this.state.currentUser } /></div>);
+    }
     else if (this.state.currentDiv === 'edit'){
-      return (<h1>hello</h1>);
+      return (<div><p>EDIT</p></div>);
     }
     else if (this.state.currentDiv === 'requests'){
       return (<h1>Request ME</h1>);

@@ -15,6 +15,13 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
+//user page
+router.get('/profile', ensureLoggedIn, function(req, res, next) {
+  var user = req.user;
+  res.json(user);
+  res.render('index', { title: 'Express', env: env, user: req.user });
+});
+
 //login
 router.get('/login', function(req, res){
   console.log("LOGIN IN")
@@ -43,6 +50,18 @@ router.patch('/:id/upvote', function(req, res, next){
     res.json(joke);
   });
 })
+
+//update we hope
+router.get('/:id/edit', ensureLoggedIn, function(req, res, next){
+  // get edit user form
+  var id = req.params.id;
+  User.findOne({_id: id }, function(err, user){
+    if (err) console.log(err);
+    res.json(user);
+  });
+});
+
+
 
 //the signingin and saving of it all
 router.get('/callback',
