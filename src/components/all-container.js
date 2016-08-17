@@ -2,9 +2,11 @@ import React from 'react';
 import Navbar from './navbar';
 import UsersContainer from './users-container';
 import Profile from './profile';
+import Edit from './edit';
 
 
 class AllContainer extends React.Component {
+
  constructor(){
     super();
     this.state = {
@@ -39,6 +41,11 @@ class AllContainer extends React.Component {
     })
   }
 
+    _edit(info){
+      this.setState({currentUser: info});
+    }
+
+
 
   _showDiv(){
     if (this.state.currentDiv === 'all'){
@@ -48,7 +55,7 @@ class AllContainer extends React.Component {
       return (<div><Profile currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'edit'){
-      return (<div><p>EDIT</p></div>);
+      return (<div><Edit edit={ this._edit.bind(this) } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
       return (<h1>Request ME</h1>);
@@ -59,7 +66,7 @@ class AllContainer extends React.Component {
     else {
       return (<h1>Hello Ya Goon</h1>)
     }
-  }
+  };
 
   _changeCurrentDiv(key){
     this.setState({currentDiv: key});

@@ -10,6 +10,12 @@ var env = {
   AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
 };
 
+//login
+router.get('/login', function(req, res){
+  console.log("LOGIN IN")
+  res.render('login', { title: 'Express', env: env });
+});
+
 //Home page
 router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
@@ -22,12 +28,27 @@ router.get('/profile', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
-//login
-router.get('/login', function(req, res){
-  console.log("LOGIN IN")
-  res.render('login', { title: 'Express', env: env });
+//EDIT main profile page
+router.get('/edit', ensureLoggedIn, function(req, res, next){
+  // get edit user form
+  var id = req.user.id;
+  User.findByIdAndUpdate({_id: id }, function(err, user){
+    if (err) console.log(err);
+    res.json(user);
+    res.render('index', { title: 'Express', env: env, user: req.user });
+  });
 });
 
+// UPDATE main profile page
+router.patch('/edit', ensureLoggedIn, function(req, res, next){
+     var id = req.user.id;
+     var user = req.user
+  User.findByIdAndUpdate(id, req.body, function(err, user){
+    if (err) console.log(err);
+    res.json(user);
+    res.render('index', { title: 'Express', env: env, user: req.user });
+  });
+});
 
 //logout
 router.get('/logout', function(req, res){
@@ -42,25 +63,6 @@ router.get('/users', function(req, res, next) {
     res.json(users);
   });
 });
-
-//update profile info
-router.patch('/:id/upvote', function(req, res, next){
-  Joke.findByIdAndUpdate(req.params.id, { $inc: { upvotes: 1 }}, function(err, joke) {
-    if (err) console.log(err);
-    res.json(joke);
-  });
-})
-
-//update we hope
-router.get('/:id/edit', ensureLoggedIn, function(req, res, next){
-  // get edit user form
-  var id = req.params.id;
-  User.findOne({_id: id }, function(err, user){
-    if (err) console.log(err);
-    res.json(user);
-  });
-});
-
 
 
 //the signingin and saving of it all
