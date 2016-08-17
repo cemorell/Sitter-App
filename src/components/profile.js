@@ -9,6 +9,8 @@ class Profile extends React.Component {
       return (
         <div>
           <h3>{ this.props.currentUser.nickname }</h3>
+          <p>{this.props.currentUser.firstname}</p>
+          <p>{this.props.currentUser.lastname}</p>
         </div>
         )
   }

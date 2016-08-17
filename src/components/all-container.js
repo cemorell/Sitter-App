@@ -40,12 +40,10 @@ class AllContainer extends React.Component {
       console.log(error);
     })
   }
-
-    _edit(info){
-      this.setState({currentUser: info});
-    }
-
-
+  edit(info){
+    console.log('editing ' + info);
+    this.setState({currentUser: info});
+  }
 
   _showDiv(){
     if (this.state.currentDiv === 'all'){
@@ -55,7 +53,7 @@ class AllContainer extends React.Component {
       return (<div><Profile currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'edit'){
-      return (<div><Edit edit={ this._edit.bind(this) } /></div>);
+      return (<div><Edit edit={ this.edit.bind(this) } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
       return (<h1>Request ME</h1>);

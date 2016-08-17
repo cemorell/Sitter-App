@@ -29,24 +29,25 @@ router.get('/profile', ensureLoggedIn, function(req, res, next) {
 });
 
 //EDIT main profile page
-router.get('/edit', ensureLoggedIn, function(req, res, next){
-  // get edit user form
-  var id = req.user.id;
-  User.findByIdAndUpdate({_id: id }, function(err, user){
-    if (err) console.log(err);
-    res.json(user);
-    res.render('index', { title: 'Express', env: env, user: req.user });
-  });
-});
+// router.get('/edit', ensureLoggedIn, function(req, res, next){
+//   // get edit user form
+//   var id = req.user.id;
+//   User.findByIdAndUpdate({_id: id }, function(err, user){
+//     if (err) console.log(err);
+//     res.json(user);
+//     res.render('index', { title: 'Express', env: env, user: req.user });
+//   });
+// });
 
 // UPDATE main profile page
 router.patch('/edit', ensureLoggedIn, function(req, res, next){
-     var id = req.user.id;
-     var user = req.user
+     var id = req.user._id;
+     // var user = req.user
   User.findByIdAndUpdate(id, req.body, function(err, user){
     if (err) console.log(err);
-    res.json(user);
-    res.render('index', { title: 'Express', env: env, user: req.user });
+    User.findById(id, function(err, user){
+          res.json(user);
+    });
   });
 });
 
