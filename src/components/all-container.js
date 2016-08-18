@@ -3,6 +3,8 @@ import Navbar from './navbar';
 import UsersContainer from './users-container';
 import Profile from './profile';
 import Edit from './edit';
+import InputRange from 'react-input-range';
+
 
 
 class AllContainer extends React.Component {
@@ -12,7 +14,11 @@ class AllContainer extends React.Component {
     this.state = {
       users: [],
       currentDiv: 'all',
-      currentUser: {}
+      currentUser: {},
+      values: {
+        min: 12,
+        max: 99,
+      }
     };
   }
 
@@ -40,9 +46,16 @@ class AllContainer extends React.Component {
       console.log(error);
     })
   }
+
   edit(info){
     console.log('editing ' + info);
     this.setState({currentUser: info});
+  }
+
+    handleValuesChange(component, values) {
+    this.setState({
+      values: values,
+    });
   }
 
   _showDiv(){
@@ -53,7 +66,7 @@ class AllContainer extends React.Component {
       return (<div><Profile currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'edit'){
-      return (<div><Edit edit={ this.edit.bind(this) } /></div>);
+      return (<div><Edit edit={ this.edit.bind(this) } currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
       return (<h1>Request ME</h1>);

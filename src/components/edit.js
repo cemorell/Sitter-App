@@ -2,6 +2,8 @@ import React from 'react';
 
 class Edit extends React.Component {
 
+
+
   _handleSubmit(event){
     event.preventDefault();
     let firstname = this.refs.firstname.value;
@@ -19,7 +21,7 @@ class Edit extends React.Component {
     $.ajax({
       method: 'PATCH',
       url: '/edit',
-      data: {firstname: firstname, lastname: lastname},
+      data: {firstname: firstname, lastname: lastname, age: age },
       dataType: 'json'
     })
     .done(function(data){
@@ -32,16 +34,19 @@ class Edit extends React.Component {
     return (
       <div className="form">
       <form onSubmit={ this._handleSubmit.bind(this) }>
-        <input ref="firstname" placeholder="first name" type="text" />
-        <input ref="lastname" placeholder="last name" type="text" />
-        <input ref="sitter" placeholder="are you a sitter?" type="text" />
-        <input ref="city" placeholder="are you a sitter?" type="text" />
-        <input ref="state" placeholder="state" type="text" />
-        <input ref="image_url" placeholder="image url" type="text" />
-        <input ref="age" type="text" />
+        <input ref="firstname" placeholder="first name" defaultValue={ this.props.currentUser.firstname } type="text" />
+        <input ref="lastname" placeholder="last name" defaultValue={ this.props.currentUser.lastname } type="text" />
+        <input ref="sitter" placeholder="are you a sitter?" defaultValue={ this.props.currentUser.sitter } type="text" />
+        <input ref="city" placeholder="city" defaultValue={ this.props.currentUser.city } type="text" />
+        <input ref="state" placeholder="state" defaultValue={ this.props.currentUser.state } type="text" />
+        <input ref="image_url" placeholder="image url" defaultValue={ this.props.currentUser.image_url } type="text" />
+        <input ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
+        <input type="radio" name="gender" value="male" /><p> male </p>
+        <input type="radio" name="gender" value="female" /><p>female</p>
+        <input type="radio" name="gender" value="other" /><p>other</p>
         <input type="submit" value="Update" />
       </form>
-      </div>
+    </div>
     )
   }
 

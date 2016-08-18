@@ -1,8 +1,36 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Playfair Display', serif;
+  background-color: #FAFAF5;
 }
+
 
 a {
   color: #00B7FF;
+}
+.navbar-default{
+  background-color: #C8DBDA;
+  font-weight: bold;
+  border-bottom: 5px solid #243B39;
+}
+.profile{
+  background-color: #EBEBEB;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #243B39;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #243B39;
+    background-color: #D3E3E2;
+}
+.navbar-default .navbar-brand {
+    color: #243B39;
+}
+
+
+#heading h1{
+  font-size: 50px;
+  color: #524A4C;
+  text-align: center;
+  padding-bottom: 25px;
 }
