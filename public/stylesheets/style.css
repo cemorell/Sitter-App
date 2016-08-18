@@ -11,6 +11,17 @@ a {
 h2{
   text-align: center;
 }
+.sitters{
+  background-color: #EBEBEB;
+  margin: 10px;
+}
+.allSitters{
+margin: auto 0;
+}
+.sitters img{
+  max-width: 200px;
+  max-height: 200px;
+}
 .form {
   height: 50px;
   margin: 0 auto;
@@ -53,5 +64,5 @@ h2{
   font-size: 50px;
   color: #524A4C;
   text-align: center;
-  padding-bottom: 25px;
+  padding-bottom: 35px;
 }

@@ -12,8 +12,8 @@ class Edit extends React.Component {
     let age = this.refs.age.value;
     let city = this.refs.city.value;
     let state = this.refs.state.value;
-    let image_url = this.refs.image_url.value;
     let gender = this.refs.gender.value;
+    let image_url = this.refs.image_url.value;
 
 
     // let updatedProfile = {
@@ -22,7 +22,7 @@ class Edit extends React.Component {
     //   sitter:  this.refs.sitter.value,
     //   age: this.refs.age.value,
     // };
-    console.log(firstname)
+    console.log(image_url)
     $.ajax({
       method: 'PATCH',
       url: '/edit',

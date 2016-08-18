@@ -63,8 +63,8 @@ class UsersContainer extends React.Component {
 
   render(){
       return (
-        <div>
-        <h2> AGE</h2>
+        <div className="allSitters">
+        <h2> Age</h2>
         <form className="form">
           <div className="formField">
             <InputRange

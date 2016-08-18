@@ -12,7 +12,7 @@ class AllContainer extends React.Component {
     super();
     this.state = {
       users: [],
-      currentDiv: 'all',
+      currentDiv: 'profile',
       currentUser: {},
       values: {
         min: 12,
