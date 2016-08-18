@@ -25,7 +25,6 @@ class Slider extends React.Component {
     );
   }
 }
-});
 
 module.exports = Slider;
 ReactDOM.render(<Slider />, document.getElementById('container'));

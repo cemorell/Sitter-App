@@ -25,8 +25,8 @@ class UsersContainer extends React.Component {
       return (
         <div>
         <InputRange
-        maxValue={30}
-        minValue={15}
+        maxValue={77}
+        minValue={11}
         value={this.state.values}
         onChange={this.handleValuesChange.bind(this)} />
           { this.props.users.map((userObject, index) => <User object={userObject} key={index} />) }

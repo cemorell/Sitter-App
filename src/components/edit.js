@@ -10,6 +10,11 @@ class Edit extends React.Component {
     let lastname = this.refs.lastname.value;
     let sitter =  this.refs.sitter.value;
     let age = this.refs.age.value;
+    let city = this.refs.city.value;
+    let state = this.refs.state.value;
+    let image_url = this.refs.image_url.value;
+    let gender = this.refs.gender.value;
+
 
     // let updatedProfile = {
     //   firstname: this.refs.firstname.value,
@@ -21,7 +26,7 @@ class Edit extends React.Component {
     $.ajax({
       method: 'PATCH',
       url: '/edit',
-      data: {firstname: firstname, lastname: lastname, age: age },
+      data: {firstname: firstname, lastname: lastname, age: age, sitter: sitter, city:city, state:state, image_url:image_url, gender: gender },
       dataType: 'json'
     })
     .done(function(data){
@@ -41,9 +46,8 @@ class Edit extends React.Component {
         <input ref="state" placeholder="state" defaultValue={ this.props.currentUser.state } type="text" />
         <input ref="image_url" placeholder="image url" defaultValue={ this.props.currentUser.image_url } type="text" />
         <input ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
-        <input type="radio" name="gender" value="male" /><p> male </p>
-        <input type="radio" name="gender" value="female" /><p>female</p>
-        <input type="radio" name="gender" value="other" /><p>other</p>
+        <input ref="gender" type="radio" name="gender" value="male" /><p> male </p>
+        <input ref="gender" type="radio" name="gender" value="female" /><p>female</p>
         <input type="submit" value="Update" />
       </form>
     </div>

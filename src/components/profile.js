@@ -12,7 +12,9 @@ class Profile extends React.Component {
           <p>{this.props.currentUser.firstname}</p>
           <p>{this.props.currentUser.lastname}</p>
           <p>{this.props.currentUser.age}</p>
-          <p>{this.props.currentUser.city}</p>
+          <p>{this.props.currentUser.city}</p>, <p>{this.props.currentUser.state}</p>
+          <p>{this.props.currentUser.gender}</p>
+
         </div>
         )
   }
