@@ -1,5 +1,6 @@
 # Sitter Now
 
+Link:https://sitter-now.herokuapp.com/
 
 Sitter Now is an app for parents needing a last minute or steady babysitter. Targeting parents in new cities or in need of a new sitter and babysitters looking for jobs, this app tries to bridge the connection between the two demographics.  Users are able to log into a unique account, access and edit their profile information then navigate to an all-sitters page where they can filter sitter results then email the sitter.
 
