@@ -6,15 +6,14 @@ Sitter Now is an app for parents needing a last minute or steady babysitter. Tar
 
 ## Technologies Used
   * Express, Node.js
-  * HTML/CSS
   * React
   * Bootstrap/Font Awesome
   * Auth0
   * mongoDB
-  
+  * HTML/CSS 
 
 ## Approach Taken
-  * The pre-code and first days were primarly used to wirefram, user story and ERD different scales to the site and the beginnings of starting to code.
+  * The pre-code and first days were primarly used to wireframe, user story and ERD different scales to the site and the beginnings of starting to code.
   * The second day was spent setting up DB connections, Auth0, and setting up the backend of the app and Navigation.
   * The 3rd day was for adding editing features and starting the filter features.
   * The 4th day was for finishing the filter feature, styling with CSS, deploying and trying to add bonus features. 
@@ -26,4 +25,8 @@ Sitter Now is an app for parents needing a last minute or steady babysitter. Tar
 ![user-stories](public/images/userstory.png)
 
 ## Wire Frames
-![wireframe](public/images/wireframe-notes.jpg)
+![wireframe](public/images/wireone.png)
+![wireframe](public/images/wiretwo.png)
+![wireframe](public/images/wirethree.png)
+![wireframe](public/images/wirefour.png)
+![wireframe](public/images/wirefive.png)
