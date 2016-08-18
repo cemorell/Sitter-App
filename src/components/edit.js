@@ -14,6 +14,7 @@ class Edit extends React.Component {
     let state = this.refs.state.value;
     let gender = this.refs.gender.value;
     let image_url = this.refs.image_url.value;
+    let email = this.refs.email.value;
 
 
     // let updatedProfile = {
@@ -26,7 +27,7 @@ class Edit extends React.Component {
     $.ajax({
       method: 'PATCH',
       url: '/edit',
-      data: {firstname: firstname, lastname: lastname, age: age, sitter: sitter, city:city, state:state, image_url:image_url, gender: gender },
+      data: {firstname: firstname, lastname: lastname, age: age, sitter: sitter, city:city, state:state, image_url:image_url, gender: gender, email:email },
       dataType: 'json'
     })
     .done(function(data){
@@ -41,6 +42,7 @@ class Edit extends React.Component {
       <form onSubmit={ this._handleSubmit.bind(this) }>
         <input ref="firstname" placeholder="first name" defaultValue={ this.props.currentUser.firstname } type="text" />
         <input ref="lastname" placeholder="last name" defaultValue={ this.props.currentUser.lastname } type="text" />
+        <input ref="email" placeholder="email?" defaultValue={ this.props.currentUser.email } type="text" />
         <input ref="sitter" placeholder="are you a sitter?" defaultValue={ this.props.currentUser.sitter } type="text" />
         <input ref="city" placeholder="city" defaultValue={ this.props.currentUser.city } type="text" />
         <input ref="state" placeholder="state" defaultValue={ this.props.currentUser.state } type="text" />

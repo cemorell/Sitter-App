@@ -50,7 +50,7 @@ class UsersContainer extends React.Component {
     this.setState({
       filteredUsers: filteredUsers
     });
-    if(this.state.values.max-this.state.values.min > 86){
+    if(this.state.values.max-this.state.values.min > 75){
       this.setState({
       filteredUsers: this.props.users
     });
@@ -63,7 +63,7 @@ class UsersContainer extends React.Component {
 
   render(){
       return (
-        <div className="allSitters">
+        <div className="sittersHere">
         <h2> Age</h2>
         <form className="form">
           <div className="formField">

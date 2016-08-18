@@ -13,6 +13,7 @@ class User extends React.Component {
           <p>First name: { this.props.object.firstname }</p>
           <p>Age: { this.props.object.age }</p>
           <p>city: { this.props.object.city }</p>
+          <p>{ this.props.object.email }</p>
         </div>
         )
   }

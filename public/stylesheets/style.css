@@ -14,13 +14,15 @@ h2{
 .sitters{
   background-color: #EBEBEB;
   margin: 10px;
+  min-height: 350px;
 }
 .allSitters{
-margin: auto 0;
+margin: 0 auto;
 }
 .sitters img{
   max-width: 200px;
   max-height: 200px;
+  text-align: center;
 }
 .form {
   height: 50px;
@@ -47,6 +49,9 @@ margin: auto 0;
 }
 .profile{
   background-color: #EBEBEB;
+}
+#login{
+  text-align: center;
 }
 .navbar-default .navbar-nav>li>a {
     color: #243B39;
