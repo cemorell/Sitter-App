@@ -18,3 +18,6 @@ DB_CONNECT=myMongoConnectionString
 ````
 
 Once you've set those 5 environment variables, just run `nodemon` and try calling [http://localhost:3000/](http://localhost:3000/)
+
+
+          { this.props.users.map((userObject, index) => <User object={userObject} key={index} />) }

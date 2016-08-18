@@ -8,6 +8,27 @@ body {
 a {
   color: #00B7FF;
 }
+h2{
+  text-align: center;
+}
+.form {
+  height: 50px;
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 60%;
+}
+.InputRange-slider{
+  background: #243B39;
+  border: #345754;
+}
+.InputRange-label {
+  color: black;
+  font-size: 9px;
+  }
+
+.formField {
+  margin-bottom: 5rem;
+}
 .navbar-default{
   background-color: #C8DBDA;
   font-weight: bold;

@@ -3,7 +3,6 @@ import Navbar from './navbar';
 import UsersContainer from './users-container';
 import Profile from './profile';
 import Edit from './edit';
-import InputRange from 'react-input-range';
 
 
 
@@ -30,6 +29,7 @@ class AllContainer extends React.Component {
     })
     .done(function(data){
       this.setState({users: data});
+      console.log(data)
     }.bind(this))
     .fail(function(error){
       console.log(error);
