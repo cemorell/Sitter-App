@@ -13,32 +13,20 @@ class UsersContainer extends React.Component {
           min: 12,
           max: 90,
         },
-        filteredUsers: [
-
-          // {
-          //   "nickname": "test",
-          //   "firstname": "mike",
-          //   "age": 24
-          // },
-          // {
-          //   "nickname": "test2",
-          //   "firstname": "mike2",
-          //   "age": 50
-          // }
-          ]
+        allUsers: [ ],
+        filteredUsers: [ ]
       };
     }
 
 
-  componentWillMount(){
+  componentWillReceiveProps(){
     $.ajax({
       url: '/users',
       method: "GET",
       dataType: "json"
     })
     .done(function(data){
-      this.setState({filteredUsers: data});
-      console.log(data)
+      this.setState({filteredUsers: data, allUsers: data });
     }.bind(this))
     .fail(function(error){
       console.log(error);
@@ -62,6 +50,11 @@ class UsersContainer extends React.Component {
     this.setState({
       filteredUsers: filteredUsers
     });
+    if(this.state.values.max-this.state.values.min > 86){
+      this.setState({
+      filteredUsers: this.props.users
+    });
+    }
 
   }
 
