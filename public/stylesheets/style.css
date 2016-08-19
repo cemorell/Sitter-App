@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 60px;
   font-family: 'Playfair Display', serif;
   background-color: #FAFAF5;
 }
@@ -11,13 +11,18 @@ a {
 h2{
   text-align: center;
 }
+input{
+  display: inherit;
+  padding: 2px;
+}
 .sitters{
   background-color: #EBEBEB;
   margin: 10px;
   min-height: 350px;
+  margin-left: 60px;
 }
 .allSitters{
-margin: 0 auto;
+margin-left: 100px;
 }
 .sitters img{
   max-width: 200px;
@@ -52,6 +57,19 @@ margin: 0 auto;
 }
 #login{
   text-align: center;
+  background-image: url(../images/children.jpg);
+  background-size: cover;
+}
+#login h1{
+  color: white;
+  font-size: 60px;
+}
+#loginbutton button{
+  background-color: #FAFAF5;
+  border: none;
+  padding: 15px 32px;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
 }
 .navbar-default .navbar-nav>li>a {
     color: #243B39;

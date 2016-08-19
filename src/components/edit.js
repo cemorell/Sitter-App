@@ -48,6 +48,7 @@ class Edit extends React.Component {
         <input ref="state" placeholder="state" defaultValue={ this.props.currentUser.state } type="text" />
         <input ref="image_url" placeholder="image url" defaultValue={ this.props.currentUser.image_url } type="text" />
         <input ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
+
         <input ref="gender" type="radio" name="gender" value="male" /><p> male </p>
         <input ref="gender" type="radio" name="gender" value="female" /><p>female</p>
         <input type="submit" value="Update" />

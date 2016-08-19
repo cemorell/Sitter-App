@@ -11,7 +11,7 @@ class UsersContainer extends React.Component {
       this.state = {
         values: {
           min: 12,
-          max: 90,
+          max: 92,
         },
         allUsers: [ ],
         filteredUsers: [ ]
