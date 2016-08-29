@@ -10,7 +10,7 @@ class User extends React.Component {
     event.preventDefault();
     var id = this.props.object._id;
     $.ajax({
-      method: "PATCH",
+      method: "POST",
       url: "/users/" + id + "/request",
       dataType: 'json'
     })
@@ -20,7 +20,7 @@ class User extends React.Component {
     }.bind(this))
     .fail(function(error){
       console.log(error);
-      console.log("NOPE");
+      console.log(id);
     })
   }
 
