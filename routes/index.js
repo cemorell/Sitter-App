@@ -3,6 +3,7 @@ var passport = require('passport');
 var router = express.Router();
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var User = require('../models/user');
+var Request =require('../models/request');
 
 var env = {
   AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -38,6 +39,21 @@ router.get('/profile', ensureLoggedIn, function(req, res, next) {
 //     res.render('index', { title: 'Express', env: env, user: req.user });
 //   });
 // });
+
+//Request sent
+router.post('/users/:recipient_id/request',ensureLoggedIn, function( req, res, next ) {
+  var sender_id= req.user._id;
+  var recipient_id= req.params.recipient_id;
+  var request = new Request({
+    sender_id: sender_id,
+    recipient_id: recipient_id,
+    status: "sent"
+  });
+  request.save(function(err, obj){
+    if (err) console.log(err);
+    res.json(obj);
+  });
+});
 
 // UPDATE main profile page
 router.patch('/edit', ensureLoggedIn, function(req, res, next){
