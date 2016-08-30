@@ -59,9 +59,8 @@ router.post('/users/:recipient_id/request',ensureLoggedIn, function( req, res, n
   });
 });
 
-
-// UPDATE request to confirm or deny
-router.patch('/requests/:_id/send', ensureLoggedIn, function(req, res, next){
+// UPDATE request to accept
+router.patch('/requests/:_id/accept', ensureLoggedIn, function(req, res, next){
      var id = req.params._id;
      // var user = req.user
   Request.findByIdAndUpdate(id, req.body, function(err, request){
@@ -72,8 +71,31 @@ router.patch('/requests/:_id/send', ensureLoggedIn, function(req, res, next){
   });
 });
 
+// UPDATE request to deny
+router.patch('/requests/:_id/deny', ensureLoggedIn, function(req, res, next){
+     var id = req.params._id;
+     // var user = req.user
+  Request.findByIdAndUpdate(id, req.body, function(err, request){
+    if (err) console.log(err);
+    Request.findById(id, function(err, request){
+          res.json(request);
+    });
+  });
+});
 
-//GET requests sent to me that are not yet accepted, only to work if you can nest that shit, ps you can
+//GET users who sent requests to me which are not yet accepted or denied
+router.get('/requestsusers', function(req, res, next) {
+  var id = req.user._id;
+  Request.find({recipient_id: id}, function(err, requests){
+    var ids = requests.map(function(sender) { return sender.sender_id; });
+    console.log(ids)
+    User.find({_id: {$in: ids}}, function(err, users){
+      res.json(users);
+    });
+  });
+});
+
+// GET requests of which I am the reciepient
 router.get('/requests', function(req, res, next) {
   var id = req.user._id;
   Request.find({recipient_id: id}, function(err, requests){
