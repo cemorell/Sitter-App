@@ -17,12 +17,12 @@ router.get('/login', function(req, res){
   res.render('login', { title: 'Express', env: env });
 });
 
-//Home page
+//GET Home page
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
-//user page
+//GET user's page
 router.get('/profile', ensureLoggedIn, function(req, res, next) {
   var user = req.user;
   res.json(user);
@@ -44,6 +44,21 @@ router.post('/users/:recipient_id/request',ensureLoggedIn, function( req, res, n
   });
 });
 
+
+// UPDATE request to confirm or deny
+router.patch('/requests/:_id/send', ensureLoggedIn, function(req, res, next){
+     var id = req.params._id;
+     // var user = req.user
+  Request.findByIdAndUpdate(id, req.body, function(err, request){
+    if (err) console.log(err);
+    Request.findById(id, function(err, request){
+          res.json(request);
+    });
+  });
+});
+
+
+
 // UPDATE main profile page
 router.patch('/edit', ensureLoggedIn, function(req, res, next){
      var id = req.user._id;
@@ -56,14 +71,16 @@ router.patch('/edit', ensureLoggedIn, function(req, res, next){
   });
 });
 
-//all sitters but still need to filter for SITTERS ONLY in right city in Find params
+
+//GET all sitters but still need to filter for SITTERS ONLY in right city in Find params
 router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
     res.json(users);
   });
 });
 
-//GET requests not accepted, only to work if you can nest that shit
+
+//GET requests not yet accepted, only to work if you can nest that shit, ps you can
 router.get('/requests', function(req, res, next) {
   var id = req.user._id;
   Request.find({recipient_id: id}, function(err, requests){
@@ -74,6 +91,12 @@ router.get('/requests', function(req, res, next) {
     });
   });
 });
+
+
+
+
+
+
 
 //the signingin and saving of it all
 router.get('/callback',
