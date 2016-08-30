@@ -32,7 +32,7 @@ class Requester extends React.Component {
           <p>{ this.props.object.firstname }</p> <p>{ this.props.object.lastname }</p>
           <p>{ this.props.object.city }</p>
           <button onClick={ this._confirm.bind(this) } ref={ this.props.object._id }>Confirm request</button>
-          <button onClick={ this._deny.bind(this) } ref={ this.props.object._id }>Deny request</button>
+          <button ref={ this.props.object._id }>Deny request</button>
         </div>
       )
   }
