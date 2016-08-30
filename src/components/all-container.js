@@ -3,7 +3,6 @@ import Navbar from './navbar';
 import UsersContainer from './users-container';
 import Profile from './profile';
 import Edit from './edit';
-import Requests from './requests';
 
 
 
@@ -83,7 +82,7 @@ class AllContainer extends React.Component {
       return (<div><Edit edit={ this.edit.bind(this) } currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
-      return (<div><Requests myrequests={ this.state.myrequests } /></div>);
+      return (<div>Requests</div>);
     }
     else if (this.state.currentDiv === 'matches'){
       return (<h1>MATCHs</h1>);
