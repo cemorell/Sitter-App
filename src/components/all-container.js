@@ -3,6 +3,7 @@ import Navbar from './navbar';
 import UsersContainer from './users-container';
 import Profile from './profile';
 import Edit from './edit';
+import Requests from './requests';
 
 
 
@@ -53,6 +54,7 @@ class AllContainer extends React.Component {
     })
     .done(function(data){
       this.setState({myrequests: data});
+      console.log(data);
     }.bind(this))
     .fail(function(error){
       console.log(error);
@@ -81,10 +83,10 @@ class AllContainer extends React.Component {
       return (<div><Edit edit={ this.edit.bind(this) } currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
-      return (<h1>Request ME</h1>);
+      return (<div><Requests myrequests={ this.state.myrequests } /></div>);
     }
     else if (this.state.currentDiv === 'matches'){
-      return (<h1>MATCH ME ME</h1>);
+      return (<h1>MATCHs</h1>);
     }
     else {
       return (<h1>Hello Ya Goon</h1>)
