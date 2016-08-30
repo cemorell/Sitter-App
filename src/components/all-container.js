@@ -3,6 +3,7 @@ import Navbar from './navbar';
 import UsersContainer from './users-container';
 import Profile from './profile';
 import Edit from './edit';
+import Requests from './requests';
 
 
 
@@ -14,7 +15,7 @@ class AllContainer extends React.Component {
       users: [],
       currentDiv: 'profile',
       currentUser: {},
-      myrequests: {},
+      myRequests: [],
       values: {
         min: 12,
         max: 99,
@@ -52,7 +53,7 @@ class AllContainer extends React.Component {
       dataType: "json"
     })
     .done(function(data){
-      this.setState({myrequests: data});
+      this.setState({myRequests: data});
       console.log(data);
     }.bind(this))
     .fail(function(error){
@@ -82,7 +83,7 @@ class AllContainer extends React.Component {
       return (<div><Edit edit={ this.edit.bind(this) } currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
-      return (<div>Requests</div>);
+      return (<div><Requests requests={ this.state.myRequests } /></div>);
     }
     else if (this.state.currentDiv === 'matches'){
       return (<h1>MATCHs</h1>);

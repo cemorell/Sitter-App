@@ -15,7 +15,8 @@ class Requests extends React.Component {
   render(){
       return (
         <div>
-           { this.props.myrequests.map((reqObject, index) => <Joke object={reqObject} key={index} />) }
+        <h2> Recent Requests</h2>
+           { this.props.requests.map((reqObject, index) => <Requester object={reqObject} key={index} />) }
         </div>
       )
   }
