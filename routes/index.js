@@ -29,6 +29,21 @@ router.get('/profile', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
+
+
+// UPDATE main profile page
+router.patch('/edit', ensureLoggedIn, function(req, res, next){
+     var id = req.user._id;
+     // var user = req.user
+  User.findByIdAndUpdate(id, req.body, function(err, user){
+    if (err) console.log(err);
+    User.findById(id, function(err, user){
+          res.json(user);
+    });
+  });
+});
+
+
 //Request sent
 router.post('/users/:recipient_id/request',ensureLoggedIn, function( req, res, next ) {
   var sender_id= req.user._id;
@@ -58,29 +73,7 @@ router.patch('/requests/:_id/send', ensureLoggedIn, function(req, res, next){
 });
 
 
-
-// UPDATE main profile page
-router.patch('/edit', ensureLoggedIn, function(req, res, next){
-     var id = req.user._id;
-     // var user = req.user
-  User.findByIdAndUpdate(id, req.body, function(err, user){
-    if (err) console.log(err);
-    User.findById(id, function(err, user){
-          res.json(user);
-    });
-  });
-});
-
-
-//GET all sitters but still need to filter for SITTERS ONLY in right city in Find params
-router.get('/users', function(req, res, next) {
-  User.find({}, function(err, users){
-    res.json(users);
-  });
-});
-
-
-//GET requests not yet accepted, only to work if you can nest that shit, ps you can
+//GET requests sent to me that are not yet accepted, only to work if you can nest that shit, ps you can
 router.get('/requests', function(req, res, next) {
   var id = req.user._id;
   Request.find({recipient_id: id}, function(err, requests){
@@ -93,6 +86,12 @@ router.get('/requests', function(req, res, next) {
 });
 
 
+//GET all sitters but still need to filter for SITTERS ONLY in right city in Find params
+router.get('/users', function(req, res, next) {
+  User.find({}, function(err, users){
+    res.json(users);
+  });
+});
 
 
 
