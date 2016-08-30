@@ -18,7 +18,7 @@ router.get('/login', function(req, res){
 });
 
 //Home page
-router.get('/', function(req, res, next) {
+router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
