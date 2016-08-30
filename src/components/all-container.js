@@ -14,6 +14,7 @@ class AllContainer extends React.Component {
       users: [],
       currentDiv: 'profile',
       currentUser: {},
+      myrequests: {},
       values: {
         min: 12,
         max: 99,
@@ -41,6 +42,17 @@ class AllContainer extends React.Component {
     })
     .done(function(data){
       this.setState({currentUser: data});
+    }.bind(this))
+    .fail(function(error){
+      console.log(error);
+    })
+    $.ajax({
+      url: '/requests',
+      method: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      this.setState({myrequests: data});
     }.bind(this))
     .fail(function(error){
       console.log(error);

@@ -29,17 +29,6 @@ router.get('/profile', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
-//EDIT main profile page
-// router.get('/edit', ensureLoggedIn, function(req, res, next){
-//   // get edit user form
-//   var id = req.user.id;
-//   User.findByIdAndUpdate({_id: id }, function(err, user){
-//     if (err) console.log(err);
-//     res.json(user);
-//     res.render('index', { title: 'Express', env: env, user: req.user });
-//   });
-// });
-
 //Request sent
 router.post('/users/:recipient_id/request',ensureLoggedIn, function( req, res, next ) {
   var sender_id= req.user._id;
@@ -67,13 +56,6 @@ router.patch('/edit', ensureLoggedIn, function(req, res, next){
   });
 });
 
-//logout
-router.get('/logout', function(req, res){
-  console.log("BYE now")
-  req.logout();
-  res.redirect('/');
-});
-
 //all sitters but still need to filter for SITTERS ONLY in right city in Find params
 router.get('/users', function(req, res, next) {
   User.find({}, function(err, users){
@@ -81,6 +63,17 @@ router.get('/users', function(req, res, next) {
   });
 });
 
+//GET requests not accepted, only to work if you can nest that shit
+router.get('/requests', function(req, res, next) {
+  var id = req.user._id;
+  Request.find({recipient_id: id}, function(err, requests){
+    var ids = requests.map(function(sender) { return sender.sender_id; });
+    console.log(ids)
+    User.find({_id: {$in: ids}}, function(err, users){
+      res.json(users);
+    });
+  });
+});
 
 //the signingin and saving of it all
 router.get('/callback',
@@ -101,5 +94,11 @@ router.get('/callback',
     });
   });
 
+//logout
+router.get('/logout', function(req, res){
+  console.log("BYE now")
+  req.logout();
+  res.redirect('/');
+});
 
 module.exports = router;
