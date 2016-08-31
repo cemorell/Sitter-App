@@ -98,7 +98,7 @@ router.get('/requestsusers', function(req, res, next) {
 // GET requests of which I am the reciepient
 router.get('/requests', function(req, res, next) {
   var id = req.user._id;
-  Request.find({recipient_id: id}, function(err, requests){
+  Request.find({recipient_id: id, status:"sent"}, function(err, requests){
     var ids = requests.map(function(sender) { return sender.sender_id; });
     console.log(ids)
     User.find({_id: {$in: ids}}, function(err, users){
