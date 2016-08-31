@@ -42,7 +42,7 @@ class Requester extends React.Component {
       return (
         <div className="requestshere">
           <button onClick={ this._confirm.bind(this) }>Confirm request</button>
-          <button onClick={ this._deny.bind(this) }>Confirm request</button>
+          <button onClick={ this._deny.bind(this) }>Deny request</button>
         </div>
       )
   }
