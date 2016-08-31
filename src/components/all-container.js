@@ -48,7 +48,7 @@ class AllContainer extends React.Component {
       console.log(error);
     })
     $.ajax({
-      url: '/requestsusers',
+      url: '/requests',
       method: "GET",
       dataType: "json"
     })
