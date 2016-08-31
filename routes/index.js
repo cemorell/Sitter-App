@@ -97,7 +97,11 @@ router.get('/requests', function(req, res, next) {
 //GET requests ACCEPTED of which I am either sender or reciever
 router.get('/matches', function(req, res, next) {
   var id = req.user._id;
-  Request.find({status:'accept'}, function(err, requests){
+  Request.find({
+    $and : [
+        { $or : [ { status : 'accept' } ] },
+        { $or : [ { recipient_id : id }, { sender_id : id } ] }
+    ]}, function(err, requests){
       res.json(requests);
     });
 });
