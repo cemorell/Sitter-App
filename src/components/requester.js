@@ -5,7 +5,13 @@ class Requester extends React.Component {
 //camille has initialized this class with properties including a request object
     constructor(props){
       super(props);
+      this.state= {
+        sender:{}
+      }
 
+    }
+
+    componentWillMount(){
       //with that request object, go get the sending user
       $.ajax({
         method: "GET",
@@ -14,9 +20,7 @@ class Requester extends React.Component {
       })
       .done(function(data){
         console.log(data)
-        this.state = {
-          sender: data
-        };
+        this.setState({sender: data});
       }.bind(this))
       .fail(function(error){
         console.log(error);
@@ -58,6 +62,7 @@ class Requester extends React.Component {
   render(){
       return (
         <div className="requestshere">
+        <h1> { this.state.sender.nickname } </h1>
           <button onClick={ this._confirm.bind(this) }>Confirm request</button>
           <button onClick={ this._deny.bind(this) }>Deny request</button>
         </div>
