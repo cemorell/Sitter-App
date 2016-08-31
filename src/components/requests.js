@@ -3,14 +3,11 @@ import Requester from './requester';
 
 
 
-
 class Requests extends React.Component {
 
     constructor(){
       super();
     }
-
-
 
   render(){
       return (

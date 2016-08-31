@@ -6,9 +6,9 @@ class Requester extends React.Component {
     constructor(props){
       super(props);
       this.state= {
-        sender:{}
+        sender:{},
+        display: true
       }
-
     }
 
     componentWillMount(){
@@ -29,44 +29,56 @@ class Requester extends React.Component {
 
   _confirm(event){
     event.preventDefault();
-    var id = this.props.object._id;
-    $.ajax({
-      method: "PATCH",
-      url: "/requests/" + id + "/accept",
-      dataType: 'json'
-    })
-    .done(function(data){
-      console.log(data)
-    }.bind(this))
-    .fail(function(error){
-      console.log(error);
-    })
+    var confirmed = confirm("Are you sure you want to accept?");
+    if (confirmed){
+      var id = this.props.object._id;
+      $.ajax({
+        method: "PATCH",
+        url: "/requests/" + id + "/accept",
+        dataType: 'json'
+      })
+      .done(function(data){
+        console.log(data)
+        this.setState({display: false});
+      }.bind(this))
+      .fail(function(error){
+        console.log(error);
+      })
+    }
   }
 
     _deny(event){
     event.preventDefault();
-    var id = this.props.object._id;
-    $.ajax({
-      method: "PATCH",
-      url: "/requests/" + id + "/deny",
-      dataType: 'json'
-    })
-    .done(function(data){
-      console.log(data)
-    }.bind(this))
-    .fail(function(error){
-      console.log(error);
-    })
+    var confirmed = confirm("Are you sure you want to deny?");
+    if (confirmed){
+      var id = this.props.object._id;
+      $.ajax({
+        method: "PATCH",
+        url: "/requests/" + id + "/deny",
+        dataType: 'json'
+      })
+      .done(function(data){
+        console.log(data)
+        this.setState({display: false});
+      }.bind(this))
+      .fail(function(error){
+        console.log(error);
+      })
+    }
   }
 
+
   render(){
+    if (this.state.display){
       return (
         <div className="requestshere">
         <h1> { this.state.sender.nickname } </h1>
           <button onClick={ this._confirm.bind(this) }>Confirm request</button>
           <button onClick={ this._deny.bind(this) }>Deny request</button>
-        </div>
-      )
+        </div>);
+      } else {
+      return false;
+    }
   }
 }
 
