@@ -20,7 +20,7 @@ class Requester extends React.Component {
       })
       .done(function(data){
         console.log(data)
-        this.setState({sender: data});
+        this.setState({sender: data[0]});
       }.bind(this))
       .fail(function(error){
         console.log(error);
