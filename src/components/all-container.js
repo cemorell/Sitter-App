@@ -4,6 +4,7 @@ import UsersContainer from './users-container';
 import Profile from './profile';
 import Edit from './edit';
 import Requests from './requests';
+import Matches from './matches';
 
 
 
@@ -16,6 +17,7 @@ class AllContainer extends React.Component {
       currentDiv: 'profile',
       currentUser: {},
       myRequests: [],
+      myMatches: [],
       values: {
         min: 12,
         max: 99,
@@ -59,6 +61,18 @@ class AllContainer extends React.Component {
     .fail(function(error){
       console.log(error);
     })
+    $.ajax({
+      url: '/matches',
+      method: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      this.setState({myMatches: data});
+      console.log(data);
+    }.bind(this))
+    .fail(function(error){
+      console.log(error);
+    })
   }
 
   edit(info){
@@ -86,7 +100,7 @@ class AllContainer extends React.Component {
       return (<div><Requests requests={ this.state.myRequests } /></div>);
     }
     else if (this.state.currentDiv === 'matches'){
-      return (<h1>MATCHs</h1>);
+      return (<div><Matches matches={ this.state.myMatches } /></div>);
     }
     else {
       return (<h1>Hello Ya Goon</h1>)
