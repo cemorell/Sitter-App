@@ -69,16 +69,13 @@ class Requester extends React.Component {
 
 
   render(){
-    if (this.state.display){
       return (
         <div className="requestshere">
         <h1> { this.state.sender.nickname } </h1>
           <button onClick={ this._confirm.bind(this) }>Confirm request</button>
           <button onClick={ this._deny.bind(this) }>Deny request</button>
-        </div>);
-      } else {
-      return false;
-    }
+        </div>
+      );
   }
 }
 
