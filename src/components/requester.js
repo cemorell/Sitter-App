@@ -2,8 +2,25 @@ import React from 'react';
 
 class Requester extends React.Component {
 
-    constructor(){
-      super();
+//camille has initialized this class with properties including a request object
+    constructor(props){
+      super(props);
+
+      //with that request object, go get the sending user
+      $.ajax({
+        method: "GET",
+        url: "/users/" + this.props.object.sender_id,
+        dataType: 'json'
+      })
+      .done(function(data){
+        console.log(data)
+        this.state = {
+          sender: data
+        };
+      }.bind(this))
+      .fail(function(error){
+        console.log(error);
+      })
     }
 
   _confirm(event){
