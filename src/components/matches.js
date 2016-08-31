@@ -13,7 +13,7 @@ class Matches extends React.Component {
       return (
         <div>
         <h2> Matches</h2>
-           { this.props.matches.map((matchObject, index) => <Matcher object={matchObject} key={index} />) }
+           { this.props.matches.map((matchObject, index) => <Matcher object={matchObject} key={index} currentUser={this.props.currentUser} />) }
         </div>
       )
   }

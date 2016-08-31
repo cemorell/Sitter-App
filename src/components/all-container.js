@@ -100,7 +100,7 @@ class AllContainer extends React.Component {
       return (<div><Requests requests={ this.state.myRequests } /></div>);
     }
     else if (this.state.currentDiv === 'matches'){
-      return (<div><Matches matches={ this.state.myMatches } /></div>);
+      return (<div><Matches matches={ this.state.myMatches } currentUser={ this.state.currentUser } /></div>);
     }
     else {
       return (<h1>Hello Ya Goon</h1>)
