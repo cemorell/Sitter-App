@@ -28,8 +28,8 @@ class Requester extends React.Component {
   render(){
       return (
         <div className="matcher">
-          <h1> { this.props.currentUser.nickname } </h1>
-          <h2> { this.state.sender.nickname } </h2>
+          <h1>{ this.props.currentUser}
+          <h2> { this.state.matched._id } </h2>
         </div>
         );
       }
