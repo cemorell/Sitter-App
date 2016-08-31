@@ -72,9 +72,10 @@ class Requester extends React.Component {
     if (this.state.display){
       return (
         <div className="requestshere col-xs-12 col-md-3">
-        <h2> { this.state.sender.nickname } </h2>
-        <p> { this.state.sender.firstname }</p><p> { this.state.sender.lastname } </p>
-        <p> { this.state.sender.city } </p>
+          <img src={ this.state.sender.image_url }  />
+          <h2> { this.state.sender.nickname } </h2>
+          <p> { this.state.sender.firstname }</p><p> { this.state.sender.lastname } </p>
+          <p> { this.state.sender.city } </p>
           <button onClick={ this._confirm.bind(this) }>Confirm request</button>
           <button onClick={ this._deny.bind(this) }>Deny request</button>
         </div>);

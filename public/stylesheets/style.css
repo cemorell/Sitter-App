@@ -15,7 +15,7 @@ input{
   display: inherit;
   padding: 2px;
 }
-.sitters{
+.sitters, .requesthere, .matcher{
   background-color: #EBEBEB;
   margin: 10px;
   min-height: 350px;
@@ -26,8 +26,16 @@ margin-left: 100px;
 }
 .sitters img{
   max-width: 200px;
-  max-height: 200px;
+  max-height: 150px;
   text-align: center;
+}
+.requestshere img {
+  max-width: 200px;
+  max-height: 200px;
+}
+.matcher img {
+  max-width: 220px;
+  max-height: 200px;
 }
 .form {
   height: 50px;
