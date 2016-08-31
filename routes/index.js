@@ -18,7 +18,7 @@ router.get('/login', function(req, res){
 });
 
 //GET Home page
-router.get('/', function(req, res, next) {
+router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
@@ -59,29 +59,29 @@ router.post('/users/:recipient_id/request',ensureLoggedIn, function( req, res, n
   });
 });
 
-// UPDATE request to accept
-router.patch('/requests/:_id/accept', ensureLoggedIn, function(req, res, next){
-     var id = req.params._id;
-     // var user = req.user
-  Request.findByIdAndUpdate(id, req.body, function(err, request){
-    if (err) console.log(err);
-    Request.findById(id, function(err, request){
-          res.json(request);
-    });
-  });
-});
+// // UPDATE request to accept
+// router.patch('/requests/:_id/accept', ensureLoggedIn, function(req, res, next){
+//      var id = req.params._id;
+//      // var user = req.user
+//   Request.findByIdAndUpdate(id, req.body, function(err, request){
+//     if (err) console.log(err);
+//     Request.findById(id, function(err, request){
+//           res.json(request);
+//     });
+//   });
+// });
 
-// UPDATE request to deny
-router.patch('/requests/:_id/deny', ensureLoggedIn, function(req, res, next){
-     var id = req.params._id;
-     // var user = req.user
-  Request.findByIdAndUpdate(id, req.body, function(err, request){
-    if (err) console.log(err);
-    Request.findById(id, function(err, request){
-          res.json(request);
-    });
-  });
-});
+// // UPDATE request to deny
+// router.patch('/requests/:_id/deny', ensureLoggedIn, function(req, res, next){
+//      var id = req.params._id;
+//      // var user = req.user
+//   Request.findByIdAndUpdate(id, req.body, function(err, request){
+//     if (err) console.log(err);
+//     Request.findById(id, function(err, request){
+//           res.json(request);
+//     });
+//   });
+// });
 
 //GET users who sent requests to me which are not yet accepted or denied
 router.get('/requestsusers', function(req, res, next) {
@@ -95,17 +95,17 @@ router.get('/requestsusers', function(req, res, next) {
   });
 });
 
-// GET requests of which I am the reciepient
-router.get('/requests', function(req, res, next) {
-  var id = req.user._id;
-  Request.find({recipient_id: id, status:"sent"}, function(err, requests){
-    var ids = requests.map(function(sender) { return sender.sender_id; });
-    console.log(ids)
-    User.find({_id: {$in: ids}}, function(err, users){
-      res.json(users);
-    });
-  });
-});
+// // GET requests of which I am the reciepient
+// router.get('/requests', function(req, res, next) {
+//   var id = req.user._id;
+//   Request.find({recipient_id: id, status:"sent"}, function(err, requests){
+//     var ids = requests.map(function(sender) { return sender.sender_id; });
+//     console.log(ids)
+//     User.find({_id: {$in: ids}}, function(err, users){
+//       res.json(users);
+//     });
+//   });
+// });
 
 
 //GET all sitters but still need to filter for SITTERS ONLY in right city in Find params
