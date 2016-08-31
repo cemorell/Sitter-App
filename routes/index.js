@@ -95,14 +95,14 @@ router.get('/requests', function(req, res, next) {
 });
 
 //GET requests ACCEPTED of which I am either sender or reciever
-// router.get('/matches', function(req, res, next) {
-//   var id = req.user._id;
-//   Request.find({status:'accept' $and: [
-//           { $or: [{recipient_id: id}, {sender_id: id}] }
-//       ] }, function(err, requests){
-//       res.json(requests);
-//     });
-// });
+router.get('/matches', function(req, res, next) {
+  var id = req.user._id;
+  Request.find({status:'accept' $and: [
+          { $or: [{recipient_id: id}, {sender_id: id}] }
+      ] }, function(err, requests){
+      res.json(requests);
+    });
+});
 
 
 //GET all sitters but still need to filter for SITTERS ONLY in right city in Find params
