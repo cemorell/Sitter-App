@@ -18,6 +18,21 @@ class UsersContainer extends React.Component {
       };
     }
 
+   componentWillMount(){
+    $.ajax({
+      url: '/users',
+      method: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      this.setState({filteredUsers: data});
+      console.log(data)
+    }.bind(this))
+    .fail(function(error){
+      console.log(error);
+    })
+  }
+
 
   componentWillReceiveProps(){
     $.ajax({

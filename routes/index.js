@@ -154,7 +154,7 @@ router.get('/logout', function(req, res){
 });
 
 
-//GET users who sent requests to me which are not yet accepted or denied
+// GET users who sent requests to me which are not yet accepted or denied
 // router.get('/requestsusers', function(req, res, next) {
 //   var id = req.user._id;
 //   Request.find({recipient_id: id}, function(err, requests){

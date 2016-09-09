@@ -11,6 +11,7 @@ class Requester extends React.Component {
       }
     }
 
+    // General function to call specific user that is matched with current user
     componentWillMount(){
       //with that request object, go get the sending user
       $.ajax({
