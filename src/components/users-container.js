@@ -25,7 +25,7 @@ class UsersContainer extends React.Component {
       dataType: "json"
     })
     .done(function(data){
-      this.setState({filteredUsers: data});
+      this.setState({filteredUsers: data, allUsers: data });
       console.log(data)
     }.bind(this))
     .fail(function(error){
@@ -58,7 +58,7 @@ class UsersContainer extends React.Component {
       values: values,
     });
 
-    let filteredUsers = this.state.filteredUsers.filter((val) => {
+    let filteredUsers = this.state.allUsers.filter((val) => {
       return val.age > this.state.values.min && val.age < this.state.values.max
     });
 
