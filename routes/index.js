@@ -12,7 +12,7 @@ var env = {
 };
 
 //login
-router.get('/login', function(req, res){
+router.get('/login', ensureLoggedIn, function(req, res){
   console.log("LOGIN IN")
   res.render('login', { title: 'Express', env: env });
 });
