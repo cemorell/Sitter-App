@@ -3,7 +3,6 @@ import User from './user';
 import InputRange from 'react-input-range';
 
 
-
 class UsersContainer extends React.Component {
 
     constructor(){
@@ -32,7 +31,6 @@ class UsersContainer extends React.Component {
       console.log(error);
     })
   }
-
 
   componentWillReceiveProps(){
     $.ajax({
@@ -70,10 +68,7 @@ class UsersContainer extends React.Component {
       filteredUsers: this.props.users
     });
     }
-
   }
-
-
 
 
   render(){

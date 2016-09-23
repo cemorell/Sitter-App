@@ -8,6 +8,7 @@ import Matches from './matches';
 
 
 
+
 class AllContainer extends React.Component {
 
  constructor(){
@@ -75,17 +76,20 @@ class AllContainer extends React.Component {
     })
   }
 
+  // Client side changes for current user in 'edit'
   edit(info){
     console.log('editing ' + info);
     this.setState({currentUser: info});
   }
 
+  // Slider function to change age range
     handleValuesChange(component, values) {
     this.setState({
       values: values,
     });
   }
 
+  //Nav bar control as I just found out about React Router
   _showDiv(){
     if (this.state.currentDiv === 'all'){
       return (<div><UsersContainer users={ this.state.users } /></div>);
@@ -107,6 +111,7 @@ class AllContainer extends React.Component {
     }
   };
 
+  //Handles the nav bar changes
   _changeCurrentDiv(key){
     this.setState({currentDiv: key});
   }

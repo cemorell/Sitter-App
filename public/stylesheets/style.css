@@ -1,7 +1,7 @@
 body {
   padding: 60px;
   font-family: 'Playfair Display', serif;
-  background-color: #FAFAFA;
+  background-color: #F5F7F7;
 }
 
 
@@ -18,15 +18,21 @@ input{
 .sitters, .requesthere, .matcher{
   background-color: #EBEBEB;
   margin: 10px;
-  min-height: 350px;
+  min-height: 365px;
   margin-left: 60px;
+  text-align: center;
+  padding: 15px;
 }
 .allSitters{
 margin-left: 100px;
 }
+#intoinfo{
+  color: white;
+  font-size: 30px;
+}
 .sitters img{
   max-width: 200px;
-  max-height: 150px;
+  max-height: 120px;
   text-align: center;
 }
 .requestshere img {
@@ -47,6 +53,9 @@ margin-left: 100px;
   background: #243B39;
   border: #345754;
 }
+.InputRange-track--active{
+  background: #91B3B1;
+}
 .InputRange-label {
   color: black;
   font-size: 9px;
@@ -56,7 +65,7 @@ margin-left: 100px;
   margin-bottom: 5rem;
 }
 .navbar-default{
-  background-color: #C8DBDA;
+  background-color: #91B3B1;
   font-weight: bold;
   border-bottom: 5px solid #243B39;
 }

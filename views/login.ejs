@@ -8,14 +8,12 @@
   </head>
   <body id="login">
     <h1>Sitter Now</h1>
+    <h3 id="intoinfo">Matching Parents with Sitters since 2016</h3>
 
-    <div id="loginbutton">
-      <button onclick="lock.show();">Login or Sign Up</button>
-    </div>
 
     <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('k5giYEZqoI9dw7fsNAeTLAU8nBFMpqtZ', 'babysit.auth0.com', {
+      var lock = new Auth0Lock('k5giYEZqoI9dw7fsNAeTLAU8nBFMpqtZ', 'babysit.auth0.com',  {
         auth: {
           redirectUrl: 'https://sitter-now.herokuapp.com/callback',
           responseType: 'code',
@@ -25,5 +23,9 @@
         }
       });
     </script>
+    <div id="loginbutton">
+      <button onclick="lock.show();">Login or Sign Up</button>
+    </div>
+
   </body>
 </html>
