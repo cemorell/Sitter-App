@@ -12,13 +12,13 @@ var env = {
 };
 
 //login
-router.get('/login', ensureLoggedIn, function(req, res){
+router.get('/login', function(req, res){
   console.log("LOGIN IN")
   res.render('login', { title: 'Express', env: env });
 });
 
 //GET Home page
-router.get('/', function(req, res, next) {
+router.get('/', ensureLoggedIn, function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
