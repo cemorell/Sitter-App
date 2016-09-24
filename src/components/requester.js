@@ -77,8 +77,8 @@ class Requester extends React.Component {
           <h2> { this.state.sender.nickname } </h2>
           <p> { this.state.sender.firstname }</p><p> { this.state.sender.lastname } </p>
           <p> { this.state.sender.city } </p>
-          <button onClick={ this._confirm.bind(this) }>Confirm request</button>
-          <button onClick={ this._deny.bind(this) }>Deny request</button>
+          <button className="btn btn-info" onClick={ this._confirm.bind(this) }>Confirm request</button>
+          <button className="btn btn-danger" onClick={ this._deny.bind(this) }>Deny request</button>
         </div>);
       } else {
       return false;

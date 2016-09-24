@@ -43,12 +43,7 @@ margin-left: 100px;
   max-width: 220px;
   max-height: 200px;
 }
-.form {
-  height: 50px;
-  margin: 0 auto;
-  padding-top: 10px;
-  width: 60%;
-}
+
 .InputRange-slider{
   background: #243B39;
   border: #345754;

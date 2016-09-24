@@ -10,6 +10,7 @@
     "postinstall": "rimraf public/javascripts && cross-env NODE_ENV=production webpack --config ./webpack.prod.config.js --progress --profile --colors"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",

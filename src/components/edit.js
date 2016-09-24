@@ -38,20 +38,71 @@ class Edit extends React.Component {
 
   render(){
     return (
-      <div className="form">
-      <form onSubmit={ this._handleSubmit.bind(this) }>
-        <input ref="firstname" placeholder="first name" defaultValue={ this.props.currentUser.firstname } type="text" />
-        <input ref="lastname" placeholder="last name" defaultValue={ this.props.currentUser.lastname } type="text" />
-        <input ref="email" placeholder="email?" defaultValue={ this.props.currentUser.email } type="text" />
-        <input ref="sitter" placeholder="are you a sitter?" defaultValue={ this.props.currentUser.sitter } type="text" />
-        <input ref="city" placeholder="city" defaultValue={ this.props.currentUser.city } type="text" />
-        <input ref="state" placeholder="state" defaultValue={ this.props.currentUser.state } type="text" />
-        <input ref="image_url" placeholder="image url" defaultValue={ this.props.currentUser.image_url } type="text" />
-        <input ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
+      <div className="container">
+      <form role="form" className="form-horizontal" onSubmit={ this._handleSubmit.bind(this) }>
 
-        <input ref="gender" type="radio" name="gender" value="male" /><p> male </p>
-        <input ref="gender" type="radio" name="gender" value="female" /><p>female</p>
-        <input type="submit" value="Update" />
+      <div className="checkbox">
+            <input ref="sitter" placeholder="are you a sitter?" defaultValue={ this.props.currentUser.sitter } type="checkbox" /> Are you a sitter?      (If unchecked you are a parent needing a sitter)
+        </div>
+
+       <div className="form-group">
+          <label className="col-sm-2 control-label">First Name</label>
+          <div className="col-sm-4"><input type="text" className="form-control" ref="firstname" placeholder="first name" defaultValue={ this.props.currentUser.firstname } /></div>
+          <label className="col-sm-2 control-label">Last Name</label>
+          <div className="col-sm-4"><input type="text" className="form-control" ref="lastname" placeholder="last name" defaultValue={ this.props.currentUser.lastname } /></div>
+        </div>
+
+
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">Email</label>
+            <div className="col-sm-10">
+              <input type="email" className="form-control" id="inputEmail3" ref="email" placeholder="email?" defaultValue={ this.props.currentUser.email } type="text" />
+            </div>
+        </div>
+
+
+
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">City</label>
+            <div className="col-sm-4">
+             <input type="email" className="form-control" id="inputEmail3" ref="city" placeholder="city" defaultValue={ this.props.currentUser.city } type="text" />
+            </div>
+
+          <label for="inputEmail3" className="col-sm-2 control-label">State</label>
+            <div className="col-sm-4">
+              <input ref="state" className="form-control" placeholder="state" defaultValue={ this.props.currentUser.state } type="text" />
+            </div>
+        </div>
+
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">Image Url</label>
+            <div className="col-sm-10">
+              <input className="form-control" ref="image_url" placeholder="image url" defaultValue={ this.props.currentUser.image_url } type="text" />
+            </div>
+         </div>
+
+         <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">age</label>
+            <div className="col-sm-2">
+              <input className="form-control" ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
+            </div>
+            <label className="col-sm-2 control-label"> Gender</label>
+          <label className="radio-inline">
+            <input ref="gender" type="radio" id="optionsRadios2" name="gender" value="male" /><p> male </p>
+          </label>
+
+          <label className="radio-inline">
+            <input ref="gender" type="radio" id="optionsRadios1" name="gender" value="female" /><p>female</p>
+          </label>
+
+          <label className="radio-inline">
+            <input ref="gender" type="radio" id="optionsRadios3" name="gender" value="other" /><p>prefer not to answer</p>
+          </label>
+
+        </div>
+
+        <div className="col-sm-2"></div>
+        <input className="btn btn-default animated pulse" type="submit" value="Update" />
       </form>
     </div>
     )

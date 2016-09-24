@@ -10,7 +10,7 @@ class Profile extends React.Component {
 
   render(){
       return (
-        <div className="profile col-xs-12 col-md-8">
+        <div className="profile col-xs-12 col-md-12">
           <h3>{ this.props.currentUser.nickname }</h3>
           <img src={this.props.currentUser.image_url} height="300" />
           <p>{this.props.currentUser.firstname}</p>
