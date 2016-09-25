@@ -41,9 +41,14 @@ class Edit extends React.Component {
       <div className="container">
       <form role="form" className="form-horizontal" onSubmit={ this._handleSubmit.bind(this) }>
 
-      <div className="checkbox">
-            <input ref="sitter" placeholder="are you a sitter?" defaultValue={ this.props.currentUser.sitter } type="checkbox" /> Are you a sitter?      (If unchecked you are a parent needing a sitter)
-        </div>
+      <label className="col-sm-4 control-label">Are you a sitter or parent?</label>
+      <select className="col-sm-4 form-control" ref="sitter">
+            <option className="col-sm-4" ref="sitter" defaultValue={ this.props.currentUser.sitter } value="sitter"> Sitter</option>
+            <option className="col-sm-4" ref="sitter" defaultValue={ this.props.currentUser.sitter } value="parent"> Parent</option>
+      </select>
+
+
+      <div className="space col-sm-12"></div>
 
        <div className="form-group">
           <label className="col-sm-2 control-label">First Name</label>
@@ -96,7 +101,7 @@ class Edit extends React.Component {
           </label>
 
           <label className="radio-inline">
-            <input ref="gender" type="radio" id="optionsRadios3" name="gender" value="other" /><p>prefer not to answer</p>
+            <input ref="gender" type="radio" id="optionsRadios3" name="gender" value="none" /><p>prefer not to answer</p>
           </label>
 
         </div>
