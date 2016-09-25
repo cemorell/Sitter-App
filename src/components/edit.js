@@ -43,6 +43,7 @@ class Edit extends React.Component {
 
       <label className="col-sm-4 control-label">Are you a sitter or parent?</label>
       <select className="col-sm-4 form-control" ref="sitter">
+            <option disabled selected value> -- select an option -- </option>
             <option className="col-sm-4" ref="sitter" defaultValue={ this.props.currentUser.sitter } value="sitter"> Sitter</option>
             <option className="col-sm-4" ref="sitter" defaultValue={ this.props.currentUser.sitter } value="parent"> Parent</option>
       </select>
