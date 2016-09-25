@@ -8,26 +8,17 @@ class Edit extends React.Component {
     event.preventDefault();
     let firstname = this.refs.firstname.value;
     let lastname = this.refs.lastname.value;
-    let sitter =  this.refs.sitter.value;
     let age = this.refs.age.value;
     let city = this.refs.city.value;
     let state = this.refs.state.value;
-    let gender = this.refs.gender.value;
     let image_url = this.refs.image_url.value;
     let email = this.refs.email.value;
 
-
-    // let updatedProfile = {
-    //   firstname: this.refs.firstname.value,
-    //   lastname: this.refs.lastname.value,
-    //   sitter:  this.refs.sitter.value,
-    //   age: this.refs.age.value,
-    // };
     console.log(image_url)
     $.ajax({
       method: 'PATCH',
       url: '/edit',
-      data: {firstname: firstname, lastname: lastname, age: age, sitter: sitter, city:city, state:state, image_url:image_url, gender: gender, email:email },
+      data: {firstname: firstname, lastname: lastname, age: age, city:city, state:state, image_url:image_url, email:email },
       dataType: 'json'
     })
     .done(function(data){
@@ -36,7 +27,28 @@ class Edit extends React.Component {
     }.bind(this));
   }
 
+
+_firstSubmit(event){
+    event.preventDefault();
+
+    let sitter =  this.refs.sitter.value;
+    let gender = this.refs.gender.value;
+
+    $.ajax({
+      method: 'PATCH',
+      url: '/edit',
+      data: { sitter: sitter, gender: gender },
+      dataType: 'json'
+    })
+    .done(function(data){
+      console.log(data);
+      this.props.edit(data);
+    }.bind(this));
+  }
+
+
   render(){
+        if (this.props.currentUser.sitter){
     return (
       <div className="container">
       <form role="form" className="form-horizontal" onSubmit={ this._handleSubmit.bind(this) }>
@@ -66,8 +78,6 @@ class Edit extends React.Component {
             </div>
         </div>
 
-
-
         <div className="form-group">
           <label for="inputEmail3" className="col-sm-2 control-label">City</label>
             <div className="col-sm-4">
@@ -93,27 +103,43 @@ class Edit extends React.Component {
               <input className="form-control" ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
             </div>
             <label className="col-sm-2 control-label"> Gender</label>
-          <label className="radio-inline">
-            <input ref="gender" type="radio" id="optionsRadios2" name="gender" value="male" /><p> male </p>
-          </label>
-
-          <label className="radio-inline">
-            <input ref="gender" type="radio" id="optionsRadios1" name="gender" value="female" /><p>female</p>
-          </label>
-
-          <label className="radio-inline">
-            <input ref="gender" type="radio" id="optionsRadios3" name="gender" value="none" /><p>prefer not to answer</p>
-          </label>
-
         </div>
+
 
         <div className="col-sm-2"></div>
         <input className="btn btn-default animated pulse" type="submit" value="Update" />
       </form>
-    </div>
-    )
-  }
+    </div>);
+  } else {
+    return (
 
+    <div className="container">
+          <form role="form" className="form-horizontal" onSubmit={ this._firstSubmit.bind(this) }>
+                    <div className="form-group">
+          <label className="col-sm-4 control-label">Are you a sitter or parent?</label>
+          <select className="col-sm-4 form-control" ref="sitter">
+                <option disabled selected value> -- select an option -- </option>
+                <option className="col-sm-4" ref="sitter" value="sitter"> Sitter</option>
+                <option className="col-sm-4" ref="sitter" value="parent"> Parent</option>
+          </select>
+          </div>
+
+
+          <div className="form-group">
+          <label className="col-sm-4 control-label">What is your gender?</label>
+          <select className="col-sm-4 form-control" ref="gender">
+            <option disabled selected value> -- select an option -- </option>
+            <option ref="gender"  name="gender" value="male"> male </option>
+            <option ref="gender"  name="gender" value="female"> female </option>
+            <option ref="gender"  name="gender" value="none"> prefer not to answer </option>
+         </select>
+         </div>
+                  <input className="btn btn-default animated pulse" type="submit" value="Update" />
+
+          </form>
+      </div>);
+    }
+  }
 }
 
 export default Edit;
