@@ -53,13 +53,6 @@ _firstSubmit(event){
       <div className="container">
       <form role="form" className="form-horizontal" onSubmit={ this._handleSubmit.bind(this) }>
 
-      <label className="col-sm-4 control-label">Are you a sitter or parent?</label>
-      <select className="col-sm-4 form-control" ref="sitter">
-            <option disabled selected value> -- select an option -- </option>
-            <option className="col-sm-4" ref="sitter" value="sitter"> Sitter</option>
-            <option className="col-sm-4" ref="sitter" value="parent"> Parent</option>
-      </select>
-
 
       <div className="space col-sm-12"></div>
 
@@ -102,7 +95,6 @@ _firstSubmit(event){
             <div className="col-sm-2">
               <input className="form-control" ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
             </div>
-            <label className="col-sm-2 control-label"> Gender</label>
         </div>
 
 
