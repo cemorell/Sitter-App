@@ -18,7 +18,7 @@ router.get('/login', function(req, res){
 });
 
 //GET Home page
-router.get('/', ensureLoggedIn, function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', env: env, user: req.user });
 });
 
@@ -165,6 +165,5 @@ router.get('/logout', function(req, res){
 //     });
 //   });
 // });
-// sitter:"sitter"
 
 module.exports = router;
