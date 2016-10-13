@@ -31,7 +31,7 @@ class User extends React.Component {
 
   render(){
       return (
-        <div className="sitters col-xs-12 col-md-3">
+        <div className="animated shake sitters col-xs-12 col-md-3">
           <img className="img-rounded" src={ this.props.object.image_url }  />
           <h3>{ this.props.object.nickname }</h3>
           <p>First name: { this.props.object.firstname }</p>

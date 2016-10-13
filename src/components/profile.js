@@ -11,13 +11,12 @@ class Profile extends React.Component {
   render(){
       return (
         <div className="profile col-xs-12 col-md-12">
-          <h3>{ this.props.currentUser.nickname }</h3>
-          <img src={this.props.currentUser.image_url} height="300" />
-          <p>{this.props.currentUser.firstname}</p>
-          <p>{this.props.currentUser.lastname}</p>
+          <img className="img-rounded" src={this.props.currentUser.image_url} height="270" />
+          <h4>{ this.props.currentUser.nickname }</h4>
+          <p>{this.props.currentUser.firstname} {this.props.currentUser.lastname}</p>
           <p>{this.props.currentUser.age}</p>
-          <p>{this.props.currentUser.city}</p>, <p>{this.props.currentUser.state}</p>
-          <p>{this.props.currentUser.gender}</p>
+          <p>{this.props.currentUser.city} {this.props.currentUser.state}</p>
+          <p>{this.props.currentUser.gender} {this.props.currentUser.age}</p>
 
         </div>
         )
