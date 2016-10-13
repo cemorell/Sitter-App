@@ -4,7 +4,32 @@ class Edit extends React.Component {
 
 
 
-  _handleSubmit(event){
+  _handleSitterSubmit(event){
+    event.preventDefault();
+
+    let firstname = this.refs.firstname.value;
+    let lastname = this.refs.lastname.value;
+    let age = this.refs.age.value;
+    let city = this.refs.city.value;
+    let state = this.refs.state.value;
+    let image_url = this.refs.image_url.value;
+    let email = this.refs.email.value;
+    let about = this.refs.about.value;
+
+    console.log(image_url)
+    $.ajax({
+      method: 'PATCH',
+      url: '/edit',
+      data: {firstname: firstname, lastname: lastname, age: age, city:city, state:state, image_url:image_url, email:email, aboutme:about },
+      dataType: 'json'
+    })
+    .done(function(data){
+      console.log(data);
+      this.props.edit(data);
+    }.bind(this));
+  }
+
+    _handleParentSubmit(event){
     event.preventDefault();
 
     let firstname = this.refs.firstname.value;
@@ -27,7 +52,6 @@ class Edit extends React.Component {
       this.props.edit(data);
     }.bind(this));
   }
-
 
 _firstSubmit(event){
     event.preventDefault();
@@ -52,7 +76,7 @@ _firstSubmit(event){
         if (this.props.currentUser.sitter === "parent"){
     return (
       <div className="container">
-      <form role="form" className="form-horizontal" onSubmit={ this._handleSubmit.bind(this) }>
+      <form role="form" className="form-horizontal" onSubmit={ this._handleParentSubmit.bind(this) }>
 
 
       <div className="space col-sm-12"></div>
@@ -103,10 +127,11 @@ _firstSubmit(event){
         <input className="btn btn-default animated pulse" type="submit" value="Update" />
       </form>
     </div>);
+
   } else if (this.props.currentUser.sitter === "sitter"){
     return (
       <div className="container">
-      <form role="form" className="form-horizontal" onSubmit={ this._handleSubmit.bind(this) }>
+      <form role="form" className="form-horizontal" onSubmit={ this._handleSitterSubmit.bind(this) }>
 
 
       <div className="space col-sm-12"></div>
@@ -151,12 +176,19 @@ _firstSubmit(event){
               <input className="form-control" ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
             </div>
         </div>
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-5 control-label">about me</label>
+            <div className="col-sm-10">
+              <input className="form-control" ref="about" placeholder="Tell us a little about youreself. Things to consider: times you are availible. why you want to babysit. Your job/student life." type="textarea" defaultValue={ this.props.currentUser.about } />
+            </div>
+        </div>
 
 
         <div className="col-sm-2"></div>
         <input className="btn btn-default animated pulse" type="submit" value="Update" />
       </form>
-    </div>);
+    </div>
+    );
   } else {
     return (
 
@@ -187,7 +219,8 @@ _firstSubmit(event){
 
           </form>
           <div className="col-xs-2"></div>
-      </div>);
+      </div>
+      );
     }
   }
 }

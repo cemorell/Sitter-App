@@ -109,7 +109,7 @@ router.get('/matches', function(req, res, next) {
 
 //GET all sitters but still need to filter for SITTERS ONLY in right city in Find params
 router.get('/users', function(req, res, next) {
-  User.find({}, function(err, users){
+  User.find({sitter:"sitter"}, function(err, users){
     res.json(users);
   });
 });
