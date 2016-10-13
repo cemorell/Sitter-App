@@ -1,9 +1,8 @@
 body {
   padding: 60px;
   font-family: 'Playfair Display', serif;
-  background-color: #F5F7F7;
+  background-color: #fcfcfc;
 }
-
 
 a {
   color: #00B7FF;
@@ -19,15 +18,13 @@ input{
   padding: 2px;
 }
 .sitters, .requesthere, .matcher{
-  background-color: #EBEBEB;
-  margin: 10px;
   min-height: 365px;
-  margin-left: 60px;
   text-align: center;
-  padding: 15px;
+  margin: 28px;
+  margin-right: 20px;
 }
 .allSitters{
-margin-left: 100px;
+margin: 0 auto;
 }
 #intoinfo{
   color: white;
@@ -112,4 +109,56 @@ margin-left: 100px;
   color: #524A4C;
   text-align: center;
   padding-bottom: 35px;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+  /*  UPDATED! flip the pane when hovered */
+  .flip-container:hover .back {
+    transform: rotateY(0deg);
+  }
+  .flip-container:hover .front {
+      transform: rotateY(180deg);
+  }
+
+.flip-container, .front, .back {
+  width: 320px;
+  height: 480px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  background-color: #EBEBEB;
+  margin: 15px;
+  padding: 15px;
+
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*  UPDATED! front pane, placed above back */
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(-180deg);
 }
