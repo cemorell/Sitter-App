@@ -43,6 +43,8 @@ class User extends React.Component {
             <div className="back">
               <h4>About { this.props.object.firstname }</h4>
               <p>{ this.props.object.aboutme }</p>
+              <h4> { this.props.object.firstname }'s Experience </h4>
+              <p>{ this.props.object.experience }</p>
               <button className="btn btn-info" onClick={ this._handleClick.bind(this) } ref={ this.props.object._id }>Request me</button>
             </div>
           </div>

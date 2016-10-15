@@ -127,7 +127,7 @@ _firstSubmit(event){
         <div className="form-group">
           <label for="inputEmail3" className="col-sm-2 control-label">about me</label>
             <div className="col-sm-9">
-              <input className="form-control" ref="about" placeholder="Tell us a little about you, the parent. Consider parenting styles or what you're looking for in a sitter ect." type="textarea" defaultValue={ this.props.currentUser.about } />
+              <input className="form-control" ref="about" placeholder="Tell us a little about you, the parent. Consider parenting styles or what you're looking for in a sitter ect." type="textarea" defaultValue={ this.props.currentUser.aboutme } />
             </div>
         </div>
         <div className="form-group">
@@ -194,7 +194,7 @@ _firstSubmit(event){
         <div className="form-group">
           <label for="inputEmail3" className="col-sm-2 control-label">about me</label>
             <div className="col-sm-9">
-              <input className="form-control" ref="about" placeholder="Tell us a little about youreself. Things to consider: times you are availible. why you want to babysit. Your job/student life." type="textarea" defaultValue={ this.props.currentUser.about } />
+              <input className="form-control" ref="about" placeholder="Tell us a little about youreself. Things to consider: times you are availible. why you want to babysit. Your job/student life." type="textarea" defaultValue={ this.props.currentUser.aboutme } />
             </div>
         </div>
         <div className="form-group">
