@@ -15,12 +15,13 @@ class Edit extends React.Component {
     let image_url = this.refs.image_url.value;
     let email = this.refs.email.value;
     let about = this.refs.about.value;
+    let experience = this.refs.experience.value;
 
     console.log(image_url)
     $.ajax({
       method: 'PATCH',
       url: '/edit',
-      data: {firstname: firstname, lastname: lastname, age: age, city:city, state:state, image_url:image_url, email:email, aboutme:about },
+      data: {firstname: firstname, lastname: lastname, age: age, city:city, state:state, image_url:image_url, email:email, aboutme:about, experience: experience },
       dataType: 'json'
     })
     .done(function(data){
@@ -39,12 +40,14 @@ class Edit extends React.Component {
     let state = this.refs.state.value;
     let image_url = this.refs.image_url.value;
     let email = this.refs.email.value;
+    let about = this.refs.about.value;
+    let kids_info = this.refs.kids_info.value;
 
     console.log(image_url)
     $.ajax({
       method: 'PATCH',
       url: '/edit',
-      data: {firstname: firstname, lastname: lastname, age: age, city:city, state:state, image_url:image_url, email:email },
+      data: {firstname: firstname, lastname: lastname, age: age, city:city, state:state, image_url:image_url, email:email, aboutme:about, kids_info: kids_info  },
       dataType: 'json'
     })
     .done(function(data){
@@ -121,6 +124,18 @@ _firstSubmit(event){
               <input className="form-control" ref="age" placeholder="age" type="text" defaultValue={ this.props.currentUser.age } />
             </div>
         </div>
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">about me</label>
+            <div className="col-sm-9">
+              <input className="form-control" ref="about" placeholder="Tell us a little about you, the parent. Consider parenting styles or what you're looking for in a sitter ect." type="textarea" defaultValue={ this.props.currentUser.about } />
+            </div>
+        </div>
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">Kids</label>
+            <div className="col-sm-9">
+              <input className="form-control" ref="kids_info" placeholder="Tell us a litte about your kids! Ages, names any allergies or special info" type="textarea" defaultValue={ this.props.currentUser.kids_info } />
+            </div>
+        </div>
 
 
         <div className="col-sm-2"></div>
@@ -177,11 +192,18 @@ _firstSubmit(event){
             </div>
         </div>
         <div className="form-group">
-          <label for="inputEmail3" className="col-sm-5 control-label">about me</label>
-            <div className="col-sm-10">
+          <label for="inputEmail3" className="col-sm-2 control-label">about me</label>
+            <div className="col-sm-9">
               <input className="form-control" ref="about" placeholder="Tell us a little about youreself. Things to consider: times you are availible. why you want to babysit. Your job/student life." type="textarea" defaultValue={ this.props.currentUser.about } />
             </div>
         </div>
+        <div className="form-group">
+          <label for="inputEmail3" className="col-sm-2 control-label">Experience</label>
+            <div className="col-sm-9">
+              <input className="form-control" ref="experience" placeholder="Let us know what experience you have babysitting!" type="textarea" defaultValue={ this.props.currentUser.experience } />
+            </div>
+        </div>
+
 
 
         <div className="col-sm-2"></div>
