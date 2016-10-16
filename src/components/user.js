@@ -33,21 +33,21 @@ class User extends React.Component {
       return (
         <div className="flip-container sitters col-xs-12 col-md-3" ontouchstart="this.classList.toggle('hover');">
           <div className="flipper">
-            <div className="front">
+            <span className="front">
               <img className="img-rounded" src={ this.props.object.image_url }  />
-              <h3>{ this.props.object.firstname }</h3>
+              <h4>First name: { this.props.object.firstname }</h4>
               <h4>username: { this.props.object.nickname }</h4>
               <h4>Age: { this.props.object.age }</h4>
               <h4>Gender: { this.props.object.gender }</h4>
               <h4>city: { this.props.object.city }</h4>
-            </div>
-            <div className="back">
+            </span>
+            <span className="back">
               <h4>About { this.props.object.firstname }</h4>
               <p>{ this.props.object.aboutme }</p>
               <h4> { this.props.object.firstname }'s Experience </h4>
               <p>{ this.props.object.experience }</p>
               <button className="btn btn-info" onClick={ this._handleClick.bind(this) } ref={ this.props.object._id }>Request me</button>
-            </div>
+            </span>
           </div>
         </div>
         )

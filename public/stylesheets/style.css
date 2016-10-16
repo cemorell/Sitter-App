@@ -1,7 +1,7 @@
 body {
   padding: 60px;
   font-family: 'Playfair Display', serif;
-  background-color: #fcfcfc;
+  background-color: white;
 }
 
 a {
@@ -25,6 +25,15 @@ input{
 }
 .allSitters{
 margin: 0 auto;
+}
+.block label{
+  display: block;
+  padding: 15px;
+  text-align: center;
+}
+.row {
+  text-align: center;
+  padding-left: 25px;
 }
 #intoinfo{
   color: white;
@@ -126,7 +135,7 @@ margin: 0 auto;
 
 .flip-container, .front, .back {
   width: 320px;
-  height: 440px;
+  height: 410px;
 }
 
 /* flip speed goes here */
@@ -137,12 +146,55 @@ margin: 0 auto;
   position: relative;
 }
 
+
+/* card hell */
+
+.cards > div:nth-child(13n + 1) > div:first-of-type> span {
+    background-color: #FF6961;
+}
+.cards > div:nth-child(13n + 2) > div:first-of-type> span {
+    background-color: #98AD9D;
+}
+.cards > div:nth-child(13n + 3) > div:first-of-type> span {
+    background-color: #EDFF86;
+}
+.cards > div:nth-child(13n + 4) > div:first-of-type> span {
+    background-color: #AEC6CF;
+}
+.cards > div:nth-child(13n + 5) > div:first-of-type> span {
+    background-color: #F6C0D0;
+}
+.cards > div:nth-child(13n + 6) > div:first-of-type> span {
+    background-color: #FFF5B2;
+}
+.cards > div:nth-child(13n + 7) > div:first-of-type> span {
+    background-color: #EF8354;
+}
+.cards > div:nth-child(13n + 8) > div:first-of-type> span {
+    background-color: #A9D8B8;
+}
+.cards > div:nth-child(13n + 9) > div:first-of-type> span{
+    background-color: #7D5C65;
+}
+.cards > div:nth-child(13n + 10) > div:first-of-type> span {
+    background-color: #F3C969;
+}
+.cards > div:nth-child(13n + 11) > div:first-of-type> span {
+    background-color: #3A606E;
+}
+.cards > div:nth-child(13n + 12) > div:first-of-type> span {
+    background-color: #736B92;
+}
+.cards > div:nth-child(13n + 13) > div:first-of-type> span {
+    background-color: #7C90DB;
+}
+
 /* hide back of pane during swap */
 .front, .back {
   backface-visibility: hidden;
+  background-color: grey;
   transition: 0.4s;
   transform-style: preserve-3d;
-  background-color: #EBEBEB;
   margin: 15px;
   padding: 15px;
 

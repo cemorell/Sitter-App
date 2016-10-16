@@ -61,14 +61,14 @@ class UsersContainer extends React.Component {
         for (var i = filteredUsers.length - 1; i >= 0; i--) {
           for (var j = genderedUsers.length - 1; j >= 0; j--) {
             if (filteredUsers[i]._id === genderedUsers[j]._id) {
-              array.push(filteredUsers[i])
+              array.push(genderedUsers[j])
             }
           }
         }
-
       this.setState({
       myUsers: array
     });
+
   }
 
 
@@ -78,17 +78,12 @@ class UsersContainer extends React.Component {
     });
 
     let filteredUsers = this.state.allUsers.filter((val) => {
-      return val.age > this.state.values.min && val.age < this.state.values.max
+      return val.age >= this.state.values.min && val.age <= this.state.values.max
     });
 
     this.setState({
       filteredUsers: filteredUsers
     });
-    if(this.state.values.max-this.state.values.min > 85){
-      this.setState({
-      filteredUsers: this.props.users
-    });
-    }
     this.saySomething()
   }
 
@@ -96,7 +91,9 @@ class UsersContainer extends React.Component {
     console.log("all")
     this.setState({
       genderedUsers: this.state.allUsers
-    }).then(this.saySomething());
+    })
+    this.saySomething();
+
   }
 
   _handleClickMale(){
@@ -127,23 +124,32 @@ class UsersContainer extends React.Component {
         <div className="sittersHere">
           <div className="row">
 
-            <div className="btn-group col-xs-12 col-md-4" role="group" aria-label="...">
-                <button type="button" onClick={ this._handleClickAll.bind(this) } ref="gender" value="all" className="btn btn-default">All</button>
-                <button type="button" onClick={ this._handleClickMale.bind(this) } ref="gender" value="male" className="btn btn-default">Male</button>
-                <button type="button" onClick={ this._handleClickFemale.bind(this) } ref="gender" value="black" className="btn btn-default">Female</button>
+            <div className="block col-xs-12 col-md-6">
+              <label>Slide for age range</label>
+              <form className="form">
+                <div className="formField">
+                  <InputRange
+                    maxValue={99}
+                    minValue={12}
+                    value={this.state.values}
+                    onChange={this.handleValuesChange.bind(this)}
+                  />
+                </div>
+              </form>
             </div>
 
-            <form className="form col-xs-12 col-md-7">
-              <div className="formField">
-                <InputRange
-                  maxValue={99}
-                  minValue={12}
-                  value={this.state.values}
-                  onChange={this.handleValuesChange.bind(this)}
-                />
+
+            <div className="block col-xs-12 col-md-6">
+              <label>Double click for gender</label>
+              <div className="btn-group" role="group" aria-label="...">
+                  <button type="button" onClick={ this._handleClickAll.bind(this) } ref="gender" value="all" className="btn btn-default">All</button>
+                  <button type="button" onClick={ this._handleClickMale.bind(this) } ref="gender" value="male" className="btn btn-default">Male</button>
+                  <button type="button" onClick={ this._handleClickFemale.bind(this) } ref="gender" value="black" className="btn btn-default">Female</button>
               </div>
-            </form>
+            </div>
+
           </div>
+          <div className="cards">
 
           {
           this.state.myUsers.map((userObject, index) =>
@@ -152,9 +158,16 @@ class UsersContainer extends React.Component {
 
           )
           }
+          </div>
         </div>
       )
   }
 }
 
 export default UsersContainer;
+
+    // if(this.state.values.max-this.state.values.min > 85){
+    //   this.setState({
+    //   filteredUsers: this.props.users
+    // });
+    // }
