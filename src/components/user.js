@@ -35,10 +35,11 @@ class User extends React.Component {
           <div className="flipper">
             <div className="front">
               <img className="img-rounded" src={ this.props.object.image_url }  />
-              <h3>{ this.props.object.nickname }</h3>
-              <p>First name: { this.props.object.firstname }</p>
-              <p>Age: { this.props.object.age }</p>
-              <p>city: { this.props.object.city }</p>
+              <h3>{ this.props.object.firstname }</h3>
+              <h4>username: { this.props.object.nickname }</h4>
+              <h4>Age: { this.props.object.age }</h4>
+              <h4>Gender: { this.props.object.gender }</h4>
+              <h4>city: { this.props.object.city }</h4>
             </div>
             <div className="back">
               <h4>About { this.props.object.firstname }</h4>

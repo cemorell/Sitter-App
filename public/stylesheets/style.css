@@ -126,12 +126,12 @@ margin: 0 auto;
 
 .flip-container, .front, .back {
   width: 320px;
-  height: 480px;
+  height: 440px;
 }
 
 /* flip speed goes here */
 .flipper {
-  transition: 0.6s;
+  transition: 0.4s;
   transform-style: preserve-3d;
 
   position: relative;
@@ -140,7 +140,7 @@ margin: 0 auto;
 /* hide back of pane during swap */
 .front, .back {
   backface-visibility: hidden;
-  transition: 0.6s;
+  transition: 0.4s;
   transform-style: preserve-3d;
   background-color: #EBEBEB;
   margin: 15px;
