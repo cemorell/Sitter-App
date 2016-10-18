@@ -111,7 +111,7 @@ class AllContainer extends React.Component {
     }
   };
 
-  //Handles the nav bar changes
+  //Handles the NAV bar changes
   _changeCurrentDiv(key){
     this.setState({currentDiv: key});
   }

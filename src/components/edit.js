@@ -27,6 +27,7 @@ class Edit extends React.Component {
     .done(function(data){
       console.log(data);
       this.props.edit(data);
+      this.props.changeCurrentDiv('profile');
     }.bind(this));
   }
 
@@ -54,6 +55,7 @@ class Edit extends React.Component {
     .done(function(data){
       console.log(data);
       this.props.edit(data);
+      this.props.changeCurrentDiv('profile');
     }.bind(this));
   }
 
@@ -72,7 +74,6 @@ _firstSubmit(event){
     .done(function(data){
       console.log("WORKIN 4 CAMILLE");
       this.props.edit(data);
-      this.props.changeCurrentDiv('profile');
     }.bind(this));
   }
 
