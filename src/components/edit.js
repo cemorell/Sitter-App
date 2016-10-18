@@ -70,8 +70,9 @@ _firstSubmit(event){
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data);
+      console.log("WORKIN 4 CAMILLE");
       this.props.edit(data);
+      this.props.changeCurrentDiv('profile');
     }.bind(this));
   }
 

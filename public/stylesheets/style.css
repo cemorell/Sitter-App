@@ -81,7 +81,10 @@ margin: 0 auto;
 }
 .profile{
   background-color: #EBEBEB;
-  padding: 15px 30px 15px 30px;
+  padding: 15px 30px;
+}
+.profile img{
+  max-height: 100%;
 }
 .containerform{
   padding: 20px 30px;
