@@ -75,10 +75,6 @@ _firstSubmit(event){
     }.bind(this));
   }
 
-   _handleClick(id, event){
-    event.preventDefault();
-    this.props.changeCurrentDiv(id);
-  }
 
 
   render(){
@@ -145,7 +141,7 @@ _firstSubmit(event){
 
 
         <div className="col-sm-2"></div>
-        <input className="btn btn-default animated pulse" type="submit" onClick={ this._handleClick.bind(this, 'profile') } value="Update" />
+        <input className="btn btn-default animated pulse" type="submit" value="Update" />
       </form>
     </div>);
 
@@ -213,7 +209,7 @@ _firstSubmit(event){
 
 
         <div className="col-sm-2"></div>
-        <input className="btn btn-default animated pulse" type="submit" onClick={ this._handleClick.bind(this, 'profile') } value="Update" />
+        <input className="btn btn-default animated pulse" type="submit" value="Update" />
       </form>
     </div>
     );
