@@ -17,11 +17,17 @@ input{
   display: inherit;
   padding: 2px;
 }
-.sitters, .requesthere, .matcher{
+.sitters {
   min-height: 365px;
   text-align: center;
   margin: 28px;
   margin-right: 20px;
+}
+.requesthere, .matcher{
+  min-height: 365px;
+  margin: 28px;
+  margin-right: 20px;
+  text-align: left;
 }
 .allSitters{
 margin: 0 auto;

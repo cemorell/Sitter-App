@@ -30,6 +30,7 @@ class Edit extends React.Component {
     }.bind(this));
   }
 
+
     _handleParentSubmit(event){
     event.preventDefault();
 
@@ -72,6 +73,11 @@ _firstSubmit(event){
       console.log(data);
       this.props.edit(data);
     }.bind(this));
+  }
+
+   _handleClick(id, event){
+    event.preventDefault();
+    this.props.changeCurrentDiv(id);
   }
 
 
@@ -139,7 +145,7 @@ _firstSubmit(event){
 
 
         <div className="col-sm-2"></div>
-        <input className="btn btn-default animated pulse" type="submit" value="Update" />
+        <input className="btn btn-default animated pulse" type="submit" onClick={ this._handleClick.bind(this, 'profile') } value="Update" />
       </form>
     </div>);
 
@@ -207,7 +213,7 @@ _firstSubmit(event){
 
 
         <div className="col-sm-2"></div>
-        <input className="btn btn-default animated pulse" type="submit" value="Update" />
+        <input className="btn btn-default animated pulse" type="submit" onClick={ this._handleClick.bind(this, 'profile') } value="Update" />
       </form>
     </div>
     );

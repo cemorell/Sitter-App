@@ -98,7 +98,7 @@ class AllContainer extends React.Component {
       return (<div><Profile currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'edit'){
-      return (<div><Edit edit={ this.edit.bind(this) } currentUser={ this.state.currentUser } /></div>);
+      return (<div><Edit changeCurrentDiv={ this._changeCurrentDiv.bind(this) } edit={ this.edit.bind(this) } currentUser={ this.state.currentUser } /></div>);
     }
     else if (this.state.currentDiv === 'requests'){
       return (<div><Requests requests={ this.state.myRequests } /></div>);
