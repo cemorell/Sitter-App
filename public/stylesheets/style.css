@@ -84,7 +84,7 @@ margin: 0 auto;
   padding: 15px 30px;
 }
 .profile img{
-  max-height: 100%;
+  max-width: 100%;
 }
 .containerform{
   padding: 20px 30px;
