@@ -24,7 +24,7 @@ input{
   margin-right: 20px;
 }
 .requestshere, .matcher{
-  height: 465px;
+  height: 485px;
   margin: 30px;
   margin-right: 20px;
   text-align: center;
@@ -82,7 +82,6 @@ margin: 0 auto;
   border-bottom: 5px solid #243B39;
 }
 .profile{
-  background-color: #EBEBEB;
   padding: 15px 30px;
 }
 .profile img{

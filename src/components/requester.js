@@ -76,7 +76,7 @@ class Requester extends React.Component {
           <img src={ this.state.sender.image_url }  />
           <p> { this.state.sender.nickname }, age: { this.state.sender.age } </p>
           <h2> { this.state.sender.firstname } { this.state.sender.lastname } </h2>
-          <p> { this.state.sender.city } { this.state.sender.city }</p>
+          <p> { this.state.sender.city } { this.state.sender.state }</p>
           <p> { this.state.sender.aboutme } </p>
           <p> { this.state.sender.experience } </p>
           <p> { this.state.sender.kids_info } </p>
