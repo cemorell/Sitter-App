@@ -27,8 +27,9 @@ input{
   height: 465px;
   margin: 30px;
   margin-right: 20px;
-  text-align: left;
+  text-align: center;
   background-color: #EBEBEB;
+  padding: 15px;
 }
 .allSitters{
 margin: 0 auto;

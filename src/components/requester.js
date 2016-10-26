@@ -72,10 +72,10 @@ class Requester extends React.Component {
   render(){
     if (this.state.display){
       return (
-        <div className="requestshere col-xs-12 col-md-6">
+        <div className="requestshere col-xs-12 col-md-5">
           <img src={ this.state.sender.image_url }  />
-          <h2> { this.state.sender.nickname } </h2>
-          <p> { this.state.sender.firstname } { this.state.sender.lastname } </p>
+          <p> { this.state.sender.nickname }, age: { this.state.sender.age } </p>
+          <h2> { this.state.sender.firstname } { this.state.sender.lastname } </h2>
           <p> { this.state.sender.city } { this.state.sender.city }</p>
           <p> { this.state.sender.aboutme } </p>
           <p> { this.state.sender.experience } </p>
