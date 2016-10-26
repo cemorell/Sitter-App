@@ -59,8 +59,9 @@ class Matcher extends React.Component {
             <div className="matcher">
                 <img src={ this.state.matchedUser.image_url }  />
                 <p> { this.state.matchedUser.nickname } </p>
+                <p> { this.state.matchedUser.city } { this.state.matchedUser.state } </p>
                 <h2> { this.state.matchedUser.firstname }  { this.state.matchedUser.lastname } </h2>
-                <p> { this.state.matchedUser.email } </p>
+                <h3> { this.state.matchedUser.email } </h3>
                 <p> { this.state.matchedUser.aboutme } </p>
 
             </div>
