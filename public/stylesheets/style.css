@@ -25,6 +25,10 @@ h3{
   font-size: 34px;
 }
 h4{
+  font-size: 21px;
+}
+
+#login h4{
   font-size: 28px;
 }
 input{
