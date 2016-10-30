@@ -223,8 +223,8 @@ _firstSubmit(event){
           <form role="form" className="col-xs-6 form-horizontal" onSubmit={ this._firstSubmit.bind(this) }>
 
           <div className="form-group">
-          <label className="col-sm-4 control-label">Are you a sitter or parent?</label>
-          <select className="col-sm-4 form-control" ref="sitter">
+          <label className="col-sm-4 col-xs-12 control-label">Are you a sitter or parent?</label>
+          <select className="col-sm-4 col-xs-12 form-control" ref="sitter">
             <option disabled selected value> -- select an option -- </option>
             <option className="col-sm-4" ref="sitter" value="sitter"> Sitter</option>
             <option className="col-sm-4" ref="sitter" value="parent"> Parent</option>
@@ -233,8 +233,8 @@ _firstSubmit(event){
 
 
           <div className=" form-group">
-          <label className="col-sm-4 control-label">What is your gender?</label>
-          <select className="col-sm-4 form-control" ref="gender">
+          <label className="col-sm-4 col-xs-12 control-label">What is your gender?</label>
+          <select className="col-sm-4 col-xs-12 form-control" ref="gender">
             <option disabled selected value> -- select an option -- </option>
             <option ref="gender"  name="gender" value="male"> male </option>
             <option ref="gender"  name="gender" value="female"> female </option>

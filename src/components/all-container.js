@@ -118,9 +118,11 @@ class AllContainer extends React.Component {
 
   render(){
     return (
-    <div>
+    <div className="allConatiner">
       <Navbar changeCurrentDiv={ this._changeCurrentDiv.bind(this) }/>
-      { this._showDiv() }
+      <div className="currentDiv">
+        { this._showDiv() }
+      </div>
     </div>
     )
   }

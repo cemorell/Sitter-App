@@ -4,11 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Sitter Now</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body id="login">
     <h1>Sitter Now</h1>
-    <h3 id="intoinfo">Matching Parents with Sitters since 2016</h3>
+    <h3 id="intoinfo">Platform for connecting Parents with the right Sitters. </h3>
+    <h4>Sign up. Create a Profile. Connect.</h4>
 
 
     <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
@@ -24,7 +27,7 @@
       });
     </script>
     <div id="loginbutton">
-      <button onclick="lock.show();">Login or Sign Up</button>
+      <button type="button" class="btn btn-success" onclick="lock.show();">Login or Sign Up</button>
     </div>
 
   </body>

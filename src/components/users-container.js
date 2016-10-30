@@ -138,8 +138,10 @@ class UsersContainer extends React.Component {
               </form>
             </div>
 
+            <div className="block col-xs-0 col-md-2">
+            </div>
 
-            <div className="block col-xs-12 col-md-6">
+            <div className="block col-xs-12 col-md-2">
               <label>Double click for gender</label>
               <div className="btn-group" role="group" aria-label="...">
                   <button type="button" onClick={ this._handleClickAll.bind(this) } ref="gender" value="all" className="btn btn-default">All</button>
@@ -154,7 +156,7 @@ class UsersContainer extends React.Component {
           {
           this.state.myUsers.map((userObject, index) =>
 
-              <User object={userObject} key={index} />
+              <User className="cards" object={userObject} key={index} />
 
           )
           }

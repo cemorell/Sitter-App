@@ -1,7 +1,18 @@
 body {
-  padding: 60px;
   font-family: 'Playfair Display', serif;
-  background-color: white;
+/*  background-image: url(../images/children.jpg);
+*/  background-repeat: repeat;
+
+
+}
+.container-fluid {
+     padding-left: 0;
+     padding-right: 10px;
+     margin-left: 0;
+}
+.form-horizontal {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 30px;
 }
 
 a {
@@ -12,6 +23,9 @@ h2{
 }
 h3{
   font-size: 34px;
+}
+h4{
+  font-size: 28px;
 }
 input{
   display: inherit;
@@ -31,21 +45,26 @@ input{
   background-color: #EBEBEB;
   padding: 15px;
 }
-.allSitters{
-margin: 0 auto;
+.allSitters, .sittersHere{
+  padding: 5px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
+.currentDiv{
+  padding: 10px 40px;
+  margin: 100px 20px;
+}
+
 .block label{
   display: block;
   padding: 15px;
   text-align: center;
 }
-.row {
-  text-align: center;
-  padding-left: 25px;
-}
+
 #intoinfo{
-  color: white;
+  color: black;
   font-size: 30px;
+  padding: 15px 0;
 }
 .sitters img{
   max-width: 200px;
@@ -76,24 +95,28 @@ margin: 0 auto;
 .formField {
   margin-bottom: 5rem;
 }
-.navbar-default{
-  background-color: #91B3B1;
-  font-weight: bold;
-  border-bottom: 5px solid #243B39;
-}
+
 .profile{
   padding: 15px 30px;
 }
 .profile img{
   max-width: 100%;
 }
-.containerform{
-  padding: 20px 30px;
+.contain{
+  padding-top: 50px;
 }
 
 
 .profile p{
   font-size: 22px;
+}
+
+/*Login Page Stuff*/
+#heading h1{
+  font-size: 50px;
+  color: #524A4C;
+  text-align: center;
+  padding: 55px 0;
 }
 #login{
   text-align: center;
@@ -101,34 +124,50 @@ margin: 0 auto;
   background-size: cover;
 }
 #login h1{
-  color: white;
   font-size: 60px;
 }
 #loginbutton button{
-  background-color: #FAFAF5;
-  border: none;
-  padding: 15px 32px;
-  font-size: 16px;
+  padding: 20px 32px;
+  margin-top: 25px;
+  font-size: 18px;
   font-family: 'Playfair Display', serif;
 }
+
+/*Nav Bar Stuff*/
 .navbar-default .navbar-nav>li>a {
     color: #243B39;
 }
+
+
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #243B39;
     background-color: #D3E3E2;
 }
+.navbar-default .navbar-nav>li>a:hover{
+  color:white;
+  background-color: #88a5a3;
+}
 .navbar-default .navbar-brand {
     color: #243B39;
 }
+ .nava {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
 
-
-#heading h1{
-  font-size: 50px;
-  color: #524A4C;
-  text-align: center;
-  padding-bottom: 35px;
+    }
+.navbar-default{
+  background-color: #91B3B1;
+  font-weight: bold;
+  border-bottom: 5px solid #243B39;
+  padding: 5px 20px;
 }
+
+
+
+
+/* Cards ONLY below */
 
 /* entire container, keeps perspective */
 .flip-container {
@@ -146,6 +185,7 @@ margin: 0 auto;
 .flip-container, .front, .back {
   width: 320px;
   height: 410px;
+
 }
 
 /* flip speed goes here */
@@ -156,11 +196,14 @@ margin: 0 auto;
   position: relative;
 }
 
-
+.cards{
+  background-color: blue;
+}
 /* card hell */
 
 .cards > div:nth-child(13n + 1) > div:first-of-type> span {
     background-color: #FF6961;
+
 }
 .cards > div:nth-child(13n + 2) > div:first-of-type> span {
     background-color: #98AD9D;
@@ -207,7 +250,6 @@ margin: 0 auto;
   transform-style: preserve-3d;
   margin: 15px;
   padding: 15px;
-
 
   position: absolute;
   top: 0;
